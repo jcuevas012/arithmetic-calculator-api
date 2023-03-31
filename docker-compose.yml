@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+     postgres:
+        image: postgres
+        environment:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_DB: calculator-db
+        volumes:
+          - ./pgdata:/var/lib/posgresql/data
+        ports:
+          - '5432:5432'

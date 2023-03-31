@@ -1,15 +1,15 @@
 import { DataTypes, Model } from 'sequelize';
-import { sequelize } from '../sequelize';
+import { sequelize } from '../sequelize'
 
 interface UserRow {
-  id: number;
+  id: string;
   username: string;
   password: string;
   status: string;
 }
 
 export class SequelizeUser extends Model<UserRow, Omit<UserRow, 'id'>> {
-  declare id: number;
+  declare id: string;
   declare username: string;
   declare password: string;
   declare status: string;
@@ -35,5 +35,6 @@ SequelizeUser.init({
   }
 }, {
   sequelize,
+  paranoid: true, // enable soft delete
   tableName: 'users'
 })

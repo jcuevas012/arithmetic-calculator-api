@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsnd src/application/start.ts",
     "build": "tsc",
+    "start": "node build/application/start.js",
     "prestart": "npm run build && npm run db:reset",
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate",

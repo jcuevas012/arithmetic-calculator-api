@@ -58,6 +58,24 @@ export class SequelizeUserRepository implements IUserRepository {
     }
   }
 
+
+  async findByEmail(email: string): Promise<User> {
+    try {
+      const found = await SequelizeUser.findOne({ where: { username: email } })
+
+      const user = new User()
+      user.setId(found.id)
+      user.setPassword(found.password)
+      user.setUsername(found.username)
+      user.setStatus(found.status as UserStatus)
+
+      return user  
+    } catch (error) {
+      throw new Error(this.createErrorMsg('Find By username/email User', error.message))
+              
+    }
+  }
+
   async findById(id: string): Promise<User> {
     try {
       const found = await SequelizeUser.findOne({ where: { id } })

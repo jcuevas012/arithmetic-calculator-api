@@ -8,6 +8,7 @@ export interface IUserRepository {
     delete(id: string): Promise<{ id: string }>
     findById(id: string): Promise<User>
     createErrorMsg(label: string, msg: string): string;
+    findByEmail(email: string): Promise<User>
 
   }
   

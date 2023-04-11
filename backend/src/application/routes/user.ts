@@ -4,12 +4,13 @@ import { signUpValidator } from "../../infrastructure/input-validators/signup-va
 import { UserControllerFactory } from "../factories/UserControllerFactory";
 
 
-const createUserController = UserControllerFactory.make();
+const userController = UserControllerFactory.make();
+
 
 const router = Router()
 
-router.post('/signup' , signUpValidator(), async (req: Request, res: Response) => createUserController.handle(req, res))
-router.post('/signin' , signInValidator(), async (req: Request, res: Response) => createUserController.handle(req, res))
+router.post('/signup' , signUpValidator(), async (req: Request, res: Response) => userController.signUp(req, res))
+router.post('/signin' , signInValidator(), async (req: Request, res: Response) => userController.signIn(req, res))
 
 
 export { router as userRoutes  }

@@ -1,15 +1,19 @@
 import { SequelizeUserRepository } from "../../domain/repository/SequelizeUserRepository";
-import { CreateUserService } from "../../domain/services/CreateUserService";
+import { UserService } from "../../domain/services/UserService";
 import HasPassPasswordService from "../../domain/services/HashPasswordService";
-import { CreateUserController } from "../../infrastructure/controller/CreateUserController";
+import { JwtService } from "../../domain/services/JwtService";
+import { UserController } from "../../infrastructure/controller/UserController";
 
 export class UserControllerFactory {
 
   static make() {
     const repository = new SequelizeUserRepository();
-    const service = new CreateUserService(repository, new HasPassPasswordService());
-    const controller = new CreateUserController(service);
+    const service = new UserService(repository, new HasPassPasswordService(), new JwtService());
+    const controller = new UserController(service);
 
     return controller;
   }
+
+
+  
 }

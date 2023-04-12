@@ -1,5 +1,5 @@
 import { SequelizeUser } from "../../infrastructure/database/models/User";
-import { User, UserStatus } from "../entities/User/User";
+import { User, UserStatus } from "../entities/User";
 import { IUserRepository } from "../repository/IUserRepository";
 
 export class SequelizeUserRepository implements IUserRepository {

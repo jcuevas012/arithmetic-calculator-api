@@ -1,5 +1,5 @@
 import { BadRequestError } from "../entities/Error/bad-request-error";
-import {  User } from "../entities/User/User";
+import {  User } from "../entities/User";
 import { IUserRepository } from "../repository/IUserRepository";
 import HasPassPasswordService from "./HashPasswordService";
 import { JwtService } from "./JwtService";

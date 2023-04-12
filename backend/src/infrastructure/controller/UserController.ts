@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { User } from "../../domain/entities/User/User";
+import { User } from "../../domain/entities/User";
 import { UserService } from "../../domain/services/UserService";
 
 export class UserController {
@@ -27,6 +27,6 @@ export class UserController {
 
       req.session.jwt = jwtToken
 
-      return res.status(201).json({ username });
+      return res.status(200).json({ username });
   }
 }

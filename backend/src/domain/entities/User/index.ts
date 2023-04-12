@@ -9,6 +9,7 @@ export class User {
   protected username: string;
   protected password: string;
   protected status: UserStatus;
+  protected balance: number;
 
 
 
@@ -47,6 +48,14 @@ export class User {
 
   getStatus(){
     return this.status;
+  }
+
+  setBalance(balance: number) {
+    this.balance = balance
+  }
+
+  getBalance() {
+    return this.balance;
   }
 
 }

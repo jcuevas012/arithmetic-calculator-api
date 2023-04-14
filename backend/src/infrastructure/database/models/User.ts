@@ -6,6 +6,7 @@ interface UserRow {
   username: string;
   password: string;
   status: string;
+  balance: number;
 }
 
 export class SequelizeUser extends Model<UserRow, Omit<UserRow, 'id'>> {
@@ -13,6 +14,7 @@ export class SequelizeUser extends Model<UserRow, Omit<UserRow, 'id'>> {
   declare username: string;
   declare password: string;
   declare status: string;
+  declare balance: number;
 }
 
 SequelizeUser.init({
@@ -30,10 +32,15 @@ SequelizeUser.init({
     type: DataTypes.STRING,
     allowNull: false
   },
+  balance: {
+    type: DataTypes.DECIMAL,
+    allowNull: false
+  },
   status: {
     type: DataTypes.STRING,
     allowNull: false
-  }
+  },
+  
 }, {
   sequelize,
   paranoid: true, // enable soft delete

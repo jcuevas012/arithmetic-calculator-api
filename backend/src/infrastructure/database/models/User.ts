@@ -9,7 +9,7 @@ interface UserRow {
   balance: number;
 }
 
-export class SequelizeUser extends Model<UserRow, Omit<UserRow, 'id'>> {
+export class SequelizeUser extends Model<UserRow> {
   declare id: string;
   declare username: string;
   declare password: string;
@@ -19,7 +19,8 @@ export class SequelizeUser extends Model<UserRow, Omit<UserRow, 'id'>> {
 
 SequelizeUser.init({
   id: {
-    type: DataTypes.INTEGER, 
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
     autoIncrement: true
   }, 

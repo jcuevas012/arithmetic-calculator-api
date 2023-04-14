@@ -14,7 +14,6 @@ export function currentUser(req: Request, _res: Response, next: NextFunction) {
   try {
     const jwtService = new JwtService()
     const payload = jwtService.verify(jwt) as UserPayload;
-
     req.currentUser = payload ;
   } catch (error) {
     throw new BadRequestError('Error setting current user');

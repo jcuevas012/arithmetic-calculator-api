@@ -29,4 +29,8 @@ export class UserController {
 
       return res.status(200).json({ username });
   }
+
+  async getUser(req: Request, res: Response) {
+    res.status(200).send({ currentUser: req.currentUser || null })
+  }
 }

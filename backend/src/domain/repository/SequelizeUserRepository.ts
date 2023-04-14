@@ -65,8 +65,8 @@ export class SequelizeUserRepository implements IUserRepository {
 
       const user = new User()
       user.setId(found.id)
-      user.setPassword(found.password)
       user.setUsername(found.username)
+      user.setPassword(found.password)
       user.setStatus(found.status as UserStatus)
 
       return user  
@@ -82,7 +82,6 @@ export class SequelizeUserRepository implements IUserRepository {
 
       const user = new User()
       user.setId(found.id)
-      user.setPassword(found.password)
       user.setUsername(found.username)
       user.setStatus(found.status as UserStatus)
 

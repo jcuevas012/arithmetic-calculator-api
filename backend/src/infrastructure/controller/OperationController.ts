@@ -1,12 +1,12 @@
-import { Operation } from "../../domain/entities/Operation";
+import { Operation, OperationType } from "../../domain/entities/Operation";
 import { User } from "../../domain/entities/User";
 import { OperationService } from "../../domain/services/OperationService";
 import { IController, IRequest, IResponse } from "../adapters/controller.interface";
 
 
 interface OperationPayload {
-  operation: Operation,
-  user: User
+  type: OperationType,
+  cost: number
 }
 
 
@@ -16,9 +16,12 @@ export class OperationController implements IController {
   ) { }
 
   async handle(req: IRequest): Promise<IResponse> {
-    const operationPayload = req.payload as OperationPayload;
     try {
-      await this.service.addition(operationPayload.user, operationPayload.operation);
+      const payload = req.payload as OperationPayload;
+      const user = new User()
+      user.setId(req.user.id)
+      
+      await this.service.addition(user, new Operation(null, payload.type, payload.cost));
 
     } catch (err) {
       return {

@@ -7,6 +7,7 @@ import express, { Application } from 'express'
 import { userRoutes } from './routes/user';
 import { NotFoundError } from '../domain/entities/Error/not-found-error';
 import { errorHandler } from '../infrastructure/middlewares/error-handler';
+import { operationRoutes } from './routes/operation';
 
 const app: Application = express()
 
@@ -27,6 +28,7 @@ app.get('/api/health', (_req, res) => {
 })
 
 app.use('/api/users', userRoutes)
+app.use('/api/operation', operationRoutes)
 
 app.all('*', () => {
     throw new NotFoundError()

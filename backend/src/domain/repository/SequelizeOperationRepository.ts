@@ -1,13 +1,27 @@
+import { SequelizeOperation } from "../../infrastructure/database/models/Operation";
 import { Operation } from "../entities/Operation";
+import { Record } from "../entities/Record";
 import { IOperationRepository } from "./IOperationRepository";
 
 export class SequelizeOperationRepository implements IOperationRepository {
- 
-  create(operation: Operation): Promise<Operation> {
-    throw new Error("Method not implemented.");
+  identifier = 'sequelize-operation-repository';
+  async create(userId: string, operation: Operation): Promise<Record> {
+      try {
+         const createdOperation = await SequelizeOperation.create({
+          type: operation.getType(),
+          cost: operation.getCost(),
+        });
+        const newOperation = new Operation(createdOperation.id, createdOperation.type, createdOperation.cost)
+        const newRecord = new Record(userId, newOperation)
+      
+        return newRecord;
+      } catch (err) {
+        console.log(err)
+        throw new Error(this.createErrorMsg('Saving record operation', err.message))
+      }
   }
   
-  identifier = 'sequelize-operation-repository';
+  
 
   
   createErrorMsg(label: string, msg: string) {

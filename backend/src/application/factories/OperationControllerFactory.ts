@@ -2,7 +2,7 @@ import { SequelizeOperationRepository } from "../../domain/repository/SequelizeO
 import { OperationService } from "../../domain/services/OperationService";
 import { OperationController } from "../../infrastructure/controller/OperationController";
 
-export class UserControllerFactory {
+export class OperationControllerFactory {
 
   static make() {
     const repository = new SequelizeOperationRepository();

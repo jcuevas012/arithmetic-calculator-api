@@ -11,8 +11,6 @@ export class User {
   protected status: UserStatus;
   protected balance: number;
 
-
-
   constructor() {
     this.status =  UserStatus.active
   }
@@ -25,21 +23,20 @@ export class User {
     return this.id;
   }
 
-  setPassword(id: string) {
-    this.id = id
-  }
-
-  getPassword() {
-    return this.id;
-  }
-
   setUsername(username: string) {
     this.username = username
   }
 
-
   getUserName() {
     return this.username;
+  }
+
+  setPassword(password: string) {
+    this.password = password
+  }
+
+  getPassword() {
+    return this.password;
   }
 
   setStatus(status: UserStatus){

@@ -36,3 +36,4 @@ SequelizeOperation.init({
   paranoid: true, // enable soft delete
   tableName: 'operations'
 })
+

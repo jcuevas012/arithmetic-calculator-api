@@ -4,7 +4,10 @@ import { Record } from "../entities/Record";
 export interface IOperationRepository {
     identifier: string
 
-    create(userId: string, operation: Operation): Promise<Record>
+    create(record: Record): Promise<Record>
+
+    getOperationById(id: string): Promise<Operation>
+    findAll(): Promise<Operation[]>
 
   }
   

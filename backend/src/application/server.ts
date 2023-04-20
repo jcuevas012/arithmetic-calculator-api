@@ -28,7 +28,7 @@ app.get('/api/health', (_req, res) => {
 })
 
 app.use('/api/users', userRoutes)
-app.use('/api/operation', operationRoutes)
+app.use('/api/operations', operationRoutes)
 
 app.all('*', () => {
     throw new NotFoundError()

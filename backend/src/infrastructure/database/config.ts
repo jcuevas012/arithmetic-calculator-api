@@ -10,5 +10,10 @@ export const development: Options = {
   password: process.env.DB_PASSWORD,
   port: Number(process.env.DB_PORT),
   database: process.env.DB_NAME,
-  dialect: 'postgres'
+  dialect: 'postgres',
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000 //
+  }
 }

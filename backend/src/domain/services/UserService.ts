@@ -23,7 +23,8 @@ export class UserService {
         return { id }  
         
       } catch (error) {
-          throw new BadRequestError('Error saving user')
+         console.log('Log:', error.message)
+          throw new BadRequestError(`Error saving user`, )
       }
   }
 

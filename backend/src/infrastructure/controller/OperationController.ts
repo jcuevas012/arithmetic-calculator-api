@@ -1,35 +1,16 @@
-import { Operation, OperationType } from "../../domain/entities/Operation";
-import { User } from "../../domain/entities/User";
+import { Request, Response } from "express";
 import { OperationService } from "../../domain/services/OperationService";
-import { IController, IRequest, IResponse } from "../adapters/controller.interface";
 
-
-interface OperationPayload {
-  type: OperationType,
-  cost: number
-}
-
-
-export class OperationController implements IController {
+export class OperationController {
   constructor(
     private service: OperationService
   ) { }
 
-  async handle(req: IRequest): Promise<IResponse> {
-    try {
-      const payload = req.payload as OperationPayload;
-      const user = new User()
-      user.setId(req.user.id)
-      
-      await this.service.addition(user, new Operation(null, payload.type, payload.cost));
 
-    } catch (err) {
-      return {
-        status: 500,
-        payload: {
-          error: ""
-        }
-      }
-    }
+  async getOperationList(_req: Request, res: Response) {
+
+    const operations = await this.service.getOperationList()
+
+    return res.status(200).json(operations);
   }
 }

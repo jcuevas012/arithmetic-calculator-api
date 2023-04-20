@@ -11,8 +11,8 @@ const userController = UserControllerFactory.make();
 
 const router = Router()
 
-router.post('/signup' , signUpValidator(), async (req: Request, res: Response) => userController.signUp(req, res))
-router.post('/signin' , signInValidator(), async (req: Request, res: Response) => userController.signIn(req, res))
+router.post('/sign-up' , signUpValidator(), async (req: Request, res: Response) => userController.signUp(req, res))
+router.post('/sign-in' , signInValidator(), async (req: Request, res: Response) => userController.signIn(req, res))
 router.get('/current-user' , currentUser, requireAuth, async (req: Request, res: Response) => userController.getUser(req, res))
 
 

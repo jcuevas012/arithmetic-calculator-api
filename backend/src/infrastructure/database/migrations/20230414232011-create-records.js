@@ -4,17 +4,30 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.createTable('records', {
       id: {
-        type: Sequelize.UUID,
-        primaryKey: true,
-        defaultValue: Sequelize.UUIDV4,
-      },
-      cost: {
-        type: Sequelize.DECIMAL,
         allowNull: false,
+        primaryKey: true,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+      }, 
+      amount: {
+        allowNull: false,
+        type: Sequelize.DECIMAL,
+      }, 
+      userBalance: {
+        allowNull: false,
+        type: Sequelize.DECIMAL,
+      }, 
+      operationResponse: {
+        allowNull: false,
+        type: Sequelize.DECIMAL,
+      }, 
+      userId: {
+        allowNull: false,
+        type: Sequelize.UUID,
       },
-      type: {
-        type: Sequelize.STRING,
-        allowNull: false
+      operationId: {
+        allowNull: false,
+        type: Sequelize.UUID,
       },
       createdAt: {
         type: Sequelize.DATE,

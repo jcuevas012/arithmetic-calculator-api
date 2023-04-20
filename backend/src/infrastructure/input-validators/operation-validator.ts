@@ -1,16 +1,17 @@
 import { body } from "express-validator"
-import { OperationType } from "../../domain/entities/Operation"
 
 
 
 const operationValidator = () => [
-  body("userId")
-  .isUUID()
-  .withMessage("User id must be valid"),
-  body("type")
-    .trim()
-    .isIn([OperationType])
-    .withMessage("Operation type must be valid"),
+  body("operationId")
+    .isUUID()
+    .withMessage("Operation id must be valid"),
+  body("firstValue")
+    .isInt({ min: 0 })
+    .withMessage("first value must be valid"),
+  body("secondValue")
+    .isInt({ min: 0 })
+    .withMessage("second value must be valid"),
 ]
 
 

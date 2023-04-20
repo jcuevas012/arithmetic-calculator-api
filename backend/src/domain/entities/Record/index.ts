@@ -1,28 +1,57 @@
 import { Operation } from "../Operation"
-import { User } from "../User"
 
 
 export class Record {
   protected id: string
-  protected operationId: string
+  protected operation: Operation
   protected userId: string
   protected amount: number
   protected userBalance: number
-  protected operationResponse: number
+  protected operationResponse: number | string
   protected date: string
 
 
-  constructor(userId: string, operation: Operation) {
+  constructor(userId: string, operation?: Operation) {
     this.userId = userId
-    this.operationId = operation.getId()
+    this.operation = operation && operation
   }
+
+
+  setId(id: string) {
+     this.id = id 
+  }
+
+  setOperation(operation: Operation){
+     this.operation  = operation
+  }
+
+  setUserId(userId: string) {
+     this.userId = userId
+  }
+
+  setAmount(amount: number) {
+     this.amount = amount
+  }
+
+  setUserBalance(userBalance: number) {
+     this.userBalance = userBalance
+  }
+
+  setOperationResponse(operationResponse: number | string) {
+     this.operationResponse = operationResponse
+  }  
+
+  setDate(date: string) {
+     this.date = date
+  }  
+
 
   getId() {
     return this.id
   }
 
-  getOperationId(){
-    return this.operationId
+  getOperation(){
+    return this.operation
   }
 
   getUserId() {
@@ -37,6 +66,10 @@ export class Record {
     return this.userBalance
   }
 
+  getOperationResponseAsString(): string {
+      return this.operationResponse && this.operationResponse.toString()
+  }
+
   getOperationResponse() {
     return this.operationResponse
   }  
@@ -44,5 +77,8 @@ export class Record {
   getDate() {
     return this.date
   }  
+
+
+  
 
 }

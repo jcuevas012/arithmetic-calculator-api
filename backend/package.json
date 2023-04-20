@@ -9,8 +9,8 @@
     "build": "tsc",
     "start": "node build/application/start.js",
     "prestart": "npm run build",
-    "db:migrate": "npx sequelize-cli db:migrate",
-    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "db:migrate": "DB_HOST=localhost npx sequelize-cli db:migrate",
+    "db:reset": "DB_HOST=localhost npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "lint": "eslint src/**/*.ts",
     "format": "eslint src/**/*.ts --fix"
   },

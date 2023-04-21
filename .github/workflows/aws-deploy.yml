@@ -71,8 +71,9 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container andpush it to ECR so that it can be deployed to ECS.
-        docker build ./backend/ -t api-test:latest -f backend/Dockerfile
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker build ./backend/ -t api-tests -f backend/Dockerfile
+        docker tag api-tests:latest 792362469816.dkr.ecr.us-east-1.amazonaws.com/api-tests:latest
+        docker push 792362469816.dkr.ecr.us-east-1.amazonaws.com/api-tests:latest
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
 #     - name: Fill in the new image ID in the Amazon ECS task definition

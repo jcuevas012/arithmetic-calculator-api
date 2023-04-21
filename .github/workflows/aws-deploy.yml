@@ -33,7 +33,7 @@ on:
 env:
   AWS_REGION: us-east-1                   # set this to your preferred AWS region, e.g. us-west-1
   ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
-  ECR_REPOSITORY: test                    # set this to your Amazon ECR repository name
+  ECR_REPOSITORY: api-tests                    # set this to your Amazon ECR repository name
   IMAGE_TAG: arithmetic-api
   
   ECS_SERVICE: MY_ECS_SERVICE                 # set this to your Amazon ECS service name

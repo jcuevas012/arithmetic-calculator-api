@@ -23,9 +23,16 @@ app.use(
     }),
 )
 
+
+app.get('/', (_req, res) => {
+    res.send({ status: 'ok' }).status(200)
+})
+
+
 app.get('/api/health', (_req, res) => {
     res.send({ success: true }).status(200)
 })
+
 
 app.use('/api/users', userRoutes)
 app.use('/api/operations', operationRoutes)

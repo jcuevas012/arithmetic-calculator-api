@@ -8,7 +8,7 @@ services:
         links:
           - "db:database"
         ports:
-          - "3000:3000"
+          - "3000:80"
         volumes:
               - .:/usr/app/
               - .:/usr/app/node_modules

@@ -21,10 +21,12 @@ env:
   AWS_ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPOSITORY }}           
   API_IMAGE_TAG: arithmetic-api
   
-  ECS_CLUSTER: ${{ secrets.AWS_ECS_CLUSTER }}
-  ECS_SERVICE: ${{ secrets.AWS_ECS_SERVICE }}
-  ECS_TASK_DEFINITION: ${{ secrets.AWS_ECS_TASK_DEFINITION }}
-  CONTAINER_NAME: ${{ secrets.AWS_CONTAINER_NAME }}           
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_ECS_CLUSTER: ${{ secrets.AWS_ECS_CLUSTER }}
+  AWS_ECS_SERVICE: ${{ secrets.AWS_ECS_SERVICE }}
+  AWS_ECS_TASK_DEFINITION: ${{ secrets.AWS_ECS_TASK_DEFINITION }}
+  AWS_CONTAINER_NAME: ${{ secrets.AWS_CONTAINER_NAME }}           
                                                
 on:
   push:
@@ -46,8 +48,8 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ env.AWS_REGION }}
 
     - name: Login to Amazon ECR
@@ -70,14 +72,14 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: ${{ env.ECS_TASK_DEFINITION }}
-        container-name: ${{ env.CONTAINER_NAME }}
+        task-definition: ${{ env.AWS_ECS_TASK_DEFINITION }}
+        container-name: ${{ env.AWS_CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition service
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: ${{ env.ECS_SERVICE }}
-        cluster: ${{ env.ECS_CLUSTER }}
+        service: ${{ env.AWS_ECS_SERVICE }}
+        cluster: ${{ env.AWS_ECS_CLUSTER }}
         wait-for-service-stability: true

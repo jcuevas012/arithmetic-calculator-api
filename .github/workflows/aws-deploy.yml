@@ -26,7 +26,8 @@ env:
   AWS_ECS_CLUSTER: ${{ secrets.AWS_ECS_CLUSTER }}
   AWS_ECS_SERVICE: ${{ secrets.AWS_ECS_SERVICE }}
   AWS_ECS_TASK_DEFINITION: ${{ secrets.AWS_ECS_TASK_DEFINITION }}
-  AWS_CONTAINER_NAME: ${{ secrets.AWS_CONTAINER_NAME }}           
+  AWS_CONTAINER_NAME: ${{ secrets.AWS_CONTAINER_NAME }}        
+  AWS_CONTAINER_IMAGE:   ${{ secrets.AWS_CONTAINER_IMAGE }}
                                                
 on:
   push:
@@ -79,7 +80,7 @@ jobs:
       with:
         task-definition: task-definition.json
         container-name: ${{ env.AWS_CONTAINER_NAME }}
-        image: ${{ steps.build-image.outputs.image }}
+        image: ${{ env.AWS_CONTAINER_IMAGE }${{ secrets.AWS_CONTAINER_IMAGE }}
 
     - name: Deploy Amazon ECS task definition service
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1

@@ -80,7 +80,7 @@ jobs:
       with:
         task-definition: task-definition.json
         container-name: ${{ env.AWS_CONTAINER_NAME }}
-        image: ${{ env.AWS_CONTAINER_IMAGE }${{ secrets.AWS_CONTAINER_IMAGE }}
+        image: ${{ env.AWS_CONTAINER_IMAGE }}
 
     - name: Deploy Amazon ECS task definition service
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1

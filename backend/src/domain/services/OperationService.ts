@@ -18,16 +18,20 @@ export class OperationService {
   ){}
 
   async addition(userId: string, operationPayload: OperationPayload): Promise<Record>{
-      try {
-      
         const operation = await this.operationRepository.getOperationById(operationPayload.operationId)
 
-        const userOperation = await this.userRepository.findById(userId)
-        const newRecord = new Record(userOperation.getId(), operation)
+        const userInfo = await this.userRepository.findById(userId)
+
+        if (userInfo.getBalance() < operation.getCost()) {
+            throw new BadRequestError("Operation not allow, insufficient balance")
+        }
+        
+        try {
+        const newRecord = new Record(userInfo.getId(), operation)
 
         const response = this.executeOperation(operation, operationPayload)
 
-        const userBalance = userOperation.getBalance() - operation.getCost()
+        const userBalance = userInfo.getBalance() - operation.getCost()
 
         newRecord.setAmount(operation.getCost())
         newRecord.setUserBalance(userBalance)
@@ -37,7 +41,6 @@ export class OperationService {
 
         return record;
       } catch (error) {
-          console.log('Log:', error.message)
           throw new BadRequestError('Error with addition operation')
       }
   }

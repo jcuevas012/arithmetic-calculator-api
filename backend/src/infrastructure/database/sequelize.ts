@@ -1,4 +1,9 @@
 import { Sequelize } from "sequelize";
-import { development } from "./config";
+import config from "./config";
 
-export const sequelize = new Sequelize(development)
+const key = process.env.NODE_ENV as string
+
+console.log('******************')
+console.log(config[key])
+
+export const sequelize = new Sequelize(config[key])

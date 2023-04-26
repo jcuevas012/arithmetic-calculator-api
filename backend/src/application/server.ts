@@ -3,6 +3,7 @@ import 'express-async-errors'
 import { json } from 'body-parser'
 import cookieSession from 'cookie-session'
 import express, { Application } from 'express'
+import logger from 'morgan'
 
 import { userRoutes } from './routes/user';
 import { NotFoundError } from '../domain/entities/Error/not-found-error';
@@ -15,7 +16,6 @@ app.set('trust proxy', 1) // trust first proxy
 
 app.use(json())
 
-
 app.use(
     cookieSession({
         signed: false,
@@ -23,12 +23,9 @@ app.use(
     }),
 )
 
-
 app.get('/api/health', (_req, res) => {
     res.send({ success: true }).status(200)
 })
-
-
 app.use('/api/users', userRoutes)
 app.use('/api/operations', operationRoutes)
 
@@ -37,9 +34,8 @@ app.all('*', () => {
 })
 
 app.use(errorHandler)
-
 app.use(express.json())
-
+app.use(logger('dev'))
 
 
 export { app }

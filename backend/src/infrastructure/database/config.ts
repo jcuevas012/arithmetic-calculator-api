@@ -3,8 +3,9 @@ dotenv.config();
 
 import { Options } from 'sequelize';
 
+type Config = { [propKey: string]: Options }  
 
-export const development: Options = {
+ const development: Options = {
   host: process.env.DB_HOST,
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -17,3 +18,19 @@ export const development: Options = {
     idle: 10000 //
   }
 }
+
+
+ const test: Options = {
+  host: 'localhost',
+  port: 5432,
+  username: 'test-user',
+  database: 'test-db',
+  dialect: 'postgres',
+}
+
+
+const config: Config = {
+  development, test
+}
+
+export default config

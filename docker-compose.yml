@@ -1,24 +1,5 @@
 version: '3.7'
 services:
-     api:
-        container_name: aritmetic-api
-        build:
-            context: ./backend
-            dockerfile: Dockerfile
-        links:
-          - "db:database"
-        ports:
-          - "3000:80"
-        volumes:
-              - .:/usr/app/
-              - .:/usr/app/node_modules
-        env_file:
-              - ./backend/.env
-        environment: 
-          DB_HOST: db
-        depends_on:
-            - db
-        command: npm run dev
      db:
         image: postgres
         environment:
@@ -29,3 +10,33 @@ services:
           - ./pgdata:/var/lib/posgresql/data
         ports:
           - "5432:5432"
+     api:
+        container_name: aritmetic-api
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        links:
+          - "db:database"
+        ports:
+          - "3001:80"
+        # volumes:
+        #       - ./backend/.:/usr/src/app
+        #       - ./backend/.:/usr/src/app/node_modules
+        env_file:
+              - ./backend/.env
+        environment: 
+          DB_HOST: db
+        depends_on:
+            - db
+        command: npm run dev
+   
+     frontend:
+        container_name: arithmetic-frontend
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        depends_on:
+            - api
+        ports:
+          - "3000:3000"
+        command: npm run dev 

@@ -1,0 +1,11 @@
+{
+  "/_app": "pages/_app.js",
+  "/api/hello": "pages/api/hello.js",
+  "/auth/signin": "pages/auth/signin.js",
+  "/auth/signout": "pages/auth/signout.js",
+  "/auth/signup": "pages/auth/signup.js",
+  "/dashboard": "pages/dashboard.js",
+  "/": "pages/index.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js"
+}

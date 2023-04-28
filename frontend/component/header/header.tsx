@@ -7,8 +7,8 @@ interface CurrentUserProps {
 
 const Header: React.FC<CurrentUserProps> = ({ currentUser }) => {
     return (
-        <div className='relative bg-white'>
-            <div className='max-w-7xl mx-auto px-4 sm:px-6'>
+        <div className=' relative bg-white '>
+            <div className='max-w-7xl mx-auto px-4 sm:px-6 py-5'>
                 <div className='flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10'>
                     <div className='flex justify-start lg:w-0 lg:flex-1'>
                         <Link href={'/'}>
@@ -28,7 +28,7 @@ const Header: React.FC<CurrentUserProps> = ({ currentUser }) => {
                                 <Link href={'/auth/signin'}>
                                     <a className='whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900'>
                                         {' '}
-                                        Sign in{' '}
+                                        Sign in {'  '}
                                     </a>
                                 </Link>
                                 <Link href={'/auth/signup'}>
@@ -44,7 +44,7 @@ const Header: React.FC<CurrentUserProps> = ({ currentUser }) => {
                                 <Link href='/auth/signout'>
                                     <a
                                         href='#'
-                                        className='whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900'
+                                       className='ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700'
                                     >
                                         Sign out{' '}
                                     </a>

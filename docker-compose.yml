@@ -19,9 +19,9 @@ services:
           - "db:database"
         ports:
           - "3001:80"
-        # volumes:
-        #       - ./backend/.:/usr/src/app
-        #       - ./backend/.:/usr/src/app/node_modules
+        volumes:
+              - ./backend:/usr/src/app
+              - ./backend/node_modules:/usr/src/app/node_modules
         env_file:
               - ./backend/.env
         environment: 
@@ -37,6 +37,11 @@ services:
             dockerfile: Dockerfile
         depends_on:
             - api
+        links:
+          - "api:api"
         ports:
           - "3000:3000"
+        volumes:
+          - ./frontend:/usr/src/app
+          - ./frontend/node_modules:/usr/src/app/node_modules
         command: npm run dev 

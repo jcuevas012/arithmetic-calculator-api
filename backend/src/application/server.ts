@@ -1,7 +1,5 @@
 import 'express-async-errors'
-
 import { json } from 'body-parser'
-import cookieSession from 'cookie-session'
 import express, { Application } from 'express'
 import logger from 'morgan'
 
@@ -13,15 +11,10 @@ import { operationRoutes } from './routes/operation';
 const app: Application = express()
 
 app.set('trust proxy', 1) // trust first proxy
-
+app.use(logger('dev'))
 app.use(json())
+app.use(express.json())
 
-app.use(
-    cookieSession({
-        signed: false,
-        secure: false,
-    }),
-)
 
 app.get('/api/health', (_req, res) => {
     res.send({ success: true }).status(200)
@@ -34,8 +27,8 @@ app.all('*', () => {
 })
 
 app.use(errorHandler)
-app.use(express.json())
-app.use(logger('dev'))
+
+
 
 
 export { app }

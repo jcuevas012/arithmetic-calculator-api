@@ -1,11 +1,9 @@
-import {NextFunction, Request, Response} from 'express';
-import { NotAuthorizedError } from '../../domain/entities/Error/not-authorized-error';
+import { expressjwt  } from "express-jwt";
+import { Algorithm } from "jsonwebtoken";
 
+const secret = process.env.JWT_KEY
+const algorithm = process.env.JWT_ALGO as Algorithm
 
-export function requireAuth(req: Request, _res: Response, next: NextFunction) {
-  if (!req.currentUser) {
-    throw new NotAuthorizedError();
-  }
-
-  next();
+export function requireAuth() {
+    return expressjwt({ secret, algorithms: ["HS256"] })
 }

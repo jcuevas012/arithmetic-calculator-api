@@ -25,12 +25,10 @@ export class UserController {
   
       const jwtToken = await this.service.authenticate(username, password)
 
-      req.session.jwt = jwtToken
-
-      return res.status(200).json({ username });
+      return res.status(200).json({ token: jwtToken });
   }
 
   async getUser(req: Request, res: Response) {
-    res.status(200).send({ currentUser: req.currentUser || null })
+    return res.status(200).send({ currentUser: req.auth  })
   }
 }

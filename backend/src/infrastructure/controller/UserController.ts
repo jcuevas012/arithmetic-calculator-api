@@ -14,9 +14,11 @@ export class UserController {
       newUser.setUsername(username)
       newUser.setPassword(password)
 
-      const { id } = await this.service.create(newUser)
+      const createdUser = await this.service.create(newUser)
 
-      return res.status(201).json({ id });
+      const jwtToken = await this.service.authenticate(createdUser.getUserName(), createdUser.getPassword())
+
+      return res.status(201).json({ token: jwtToken });
   }
 
 

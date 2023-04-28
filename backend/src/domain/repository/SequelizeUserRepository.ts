@@ -6,7 +6,7 @@ export class SequelizeUserRepository implements IUserRepository {
   
   identifier = 'sequelize-user-repository';
 
-  async create(user: User): Promise<{ id: string; }> {
+  async create(user: User): Promise<User> {
 
     try {
       const created = await SequelizeUser.create({
@@ -16,9 +16,13 @@ export class SequelizeUserRepository implements IUserRepository {
         balance: 100
       });
 
-      return {
-        id: created.id
-      }
+      const newUser = new User()
+      newUser.setId(created.id)
+      newUser.setUsername(created.username)
+      newUser.setPassword(created.password)
+      newUser.setStatus(created.status as UserStatus)
+
+      return newUser
     } catch (error) {
       throw new Error(this.createErrorMsg('Saving User', error.message))
     }

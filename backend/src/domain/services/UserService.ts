@@ -13,14 +13,14 @@ export class UserService {
     private jwtService?: JwtService
   ){}
 
-  async create(user: User): Promise<{ id: string }> {
+  async create(user: User): Promise<User> {
       try {
         const hashPassword = await this.passwordHashService.toHash(user.getPassword())
         user.setPassword(hashPassword)
 
-        const { id } = await this.repository.create(user);
+        const newUser = await this.repository.create(user);
 
-        return { id }  
+        return newUser  
         
       } catch (error) {
          console.log('Log:', error.message)

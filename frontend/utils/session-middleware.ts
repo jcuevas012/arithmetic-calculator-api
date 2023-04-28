@@ -10,7 +10,7 @@ async function fetchUser(client: any) {
         const { data } = await client.get('/api/auth/current-user')
         return data.currentUser
     } catch (err) {
-        console.log('Error clientFetch with axios')        
+        console.log('Error fetchUser with axios')        
     }
 }
 

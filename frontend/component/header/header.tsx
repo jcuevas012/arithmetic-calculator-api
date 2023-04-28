@@ -6,6 +6,7 @@ interface CurrentUserProps {
 }
 
 const Header: React.FC<CurrentUserProps> = ({ currentUser }) => {
+    console.log('currentUser ---->>>', currentUser)
     return (
         <div className='relative bg-white'>
             <div className='max-w-7xl mx-auto px-4 sm:px-6'>
@@ -41,23 +42,14 @@ const Header: React.FC<CurrentUserProps> = ({ currentUser }) => {
                                 </Link>
                             </>
                         ) : (
-                            <>
-                                <Link href={'/orders'}>
-                                    <a className='whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900'>
-                                        {' '}
-                                        My Orders {' '}
-                                    </a>
-                                </Link>
                                 <Link href='/auth/signout'>
                                     <a
                                         href='#'
                                         className='whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900'
                                     >
-                                        {' '}
                                         Sign out{' '}
                                     </a>
                                 </Link>
-                            </>
                             
                         )}
                     </div>

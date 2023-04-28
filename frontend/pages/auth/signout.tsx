@@ -7,7 +7,7 @@ const SignOutPage: NextPage = () => {
     const router = useRouter()
     const [request] = useRequest({
         method: 'post',
-        url: '/api/users/signout',
+        url: '/api/auth/sign-out',
         body: {},
         onSuccess: () => router.push('/'),
     })

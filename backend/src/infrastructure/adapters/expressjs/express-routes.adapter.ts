@@ -6,7 +6,7 @@ export default class ExpressRoutesAdapter {
     static adapt(controller: IController) {
         return async (req: Request, res: Response) => {
             const request: IRequest = {
-                user: req.currentUser,
+                user: req.auth,
                 payload: req.body,
                 params: req.params,
                 query: req.query

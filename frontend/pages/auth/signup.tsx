@@ -10,8 +10,8 @@ const SignUpPage: NextPage = () => {
     const router = useRouter()
     const [request, errors] = useRequest({
         method: 'post',
-        url: '/api/users/signup',
-        body: { email, password },
+        url: '/api/auth/sign-up',
+        body: { username: email, password },
         onSuccess: () => router.push('/'),
     })
 

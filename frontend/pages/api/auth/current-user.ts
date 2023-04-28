@@ -1,7 +1,7 @@
 
 import { withIronSessionApiRoute } from 'iron-session/next';
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { ironOptions } from '../../../lib/config';
+import { ironOptions } from '../../../utils/config';
 import axios from 'axios';
 
 
@@ -11,7 +11,7 @@ import axios from 'axios';
 ) {
   const token = req.session.user?.token;
   
-  const response = await axios.get('http://localhost:3001/api/users/current-user', { 
+  const response = await axios.get('http://api:80/api/users/current-user', { 
     headers: {
       'Authorization': `Bearer ${token}`
     }

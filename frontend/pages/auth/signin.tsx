@@ -10,8 +10,8 @@ const SignInPage: NextPage = () => {
     const router = useRouter()
     const [request, errors] = useRequest({
         method: 'post',
-        url: '/api/users/signin',
-        body: { email, password },
+        url: '/api/auth/sign-in',
+        body: { username: email, password },
         onSuccess: () => router.push('/'),
     })
 

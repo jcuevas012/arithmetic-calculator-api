@@ -6,7 +6,6 @@ interface CurrentUserProps {
 }
 
 const Header: React.FC<CurrentUserProps> = ({ currentUser }) => {
-    console.log('currentUser ---->>>', currentUser)
     return (
         <div className='relative bg-white'>
             <div className='max-w-7xl mx-auto px-4 sm:px-6'>

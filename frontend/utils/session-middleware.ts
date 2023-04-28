@@ -1,5 +1,6 @@
 
 import { NextPageContext } from "next";
+import jwt from 'jsonwebtoken'
 import { ironOptions } from "./config";
 import buildClient from "../utils/client";
 import { getIronSession } from "iron-session";
@@ -7,7 +8,7 @@ import { getIronSession } from "iron-session";
 
 async function fetchUser(client: any) {
     try {
-        const { data } = await client.get('/api/auth/current-user')
+        const { data } = await client.get('/api/auth/me')
         return data.currentUser
     } catch (err) {
         console.log('Error fetchUser with axios')        
@@ -24,7 +25,8 @@ export async function getSessionInfo(ctx: NextPageContext) {
 
     if (typeof window === 'undefined') {
         const session = await getIronSession(req, res, ironOptions);
-        currentUser = session.user;
+        const token = session?.user?.token!
+        currentUser = jwt.decode(token);
     } else {
         currentUser = await fetchUser(client)
     }

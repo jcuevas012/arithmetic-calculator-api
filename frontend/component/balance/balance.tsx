@@ -1,17 +1,36 @@
+import { useEffect, useState } from "react"
+import useRequest from "../../hooks/use-request"
+import axios from "axios"
 
 interface CurrentUserProps {
     currentUser?: { email: string }
 }
 
 const Balance: React.FC = () => {
+
+  const [balance, setBalance] = useState(0)
+
+  const fetchData = async () => {
+    try {
+      const { data } = await axios.get('/api/current-balance')
+      setBalance(data.balance | 0)
+    } catch (error) {
+    }
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+
     return (
         <>
    <article className="rounded-lg border border-gray-100 bg-white p-6">
   <div className="flex items-center justify-between">
     <div>
-      <p className="text-sm text-gray-500">Profit</p>
+      <p className="text-sm text-gray-500">Balance</p>
 
-      <p className="text-2xl font-medium text-gray-900">$240.94</p>
+      <p className="text-2xl font-medium text-gray-900">$ {balance}</p>
     </div>
 
     <span className="rounded-full bg-blue-100 p-3 text-blue-600">

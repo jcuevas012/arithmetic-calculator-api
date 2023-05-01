@@ -5,7 +5,7 @@ import CalculatorForm from '../../component/calculator-form/calculator-form'
 
 const Records: NextPage = () => {
     return (
-        <div className='min-h-full'>
+        <div className='flex'>
             <Head>
                 <title>Arithmetic Operation App - Operation</title>
                 <meta name='viewport' content='initial-scale=1.0, width=device-width' />

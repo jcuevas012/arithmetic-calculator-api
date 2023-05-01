@@ -31,6 +31,17 @@ export class UserController {
       return res.status(200).json({ token: jwtToken });
   }
 
+
+
+  async getCurrentBalance(req: Request, res: Response) {
+
+    const id = req.auth.id
+    
+    const userInfo = await this.service.getCurrentBalance(id)
+
+    return res.status(200).send({ balance: userInfo.balance })
+  }
+
   async getUser(req: Request, res: Response) {
     return res.status(200).send({ currentUser: req.auth  })
   }

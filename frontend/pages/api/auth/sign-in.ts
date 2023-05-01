@@ -10,7 +10,9 @@ import { ironOptions } from '../../../utils/config';
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const response = await axios.post('http://api:80/api/users/sign-in', { 
+  const host = process.env.API_HOST
+  
+  const response = await axios.post(`${host}/api/users/sign-in`, { 
     ...req.body
   })
   req.session.user = { 

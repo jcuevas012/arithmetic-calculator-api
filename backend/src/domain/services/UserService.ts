@@ -37,6 +37,17 @@ export class UserService {
   }
 
 
+
+  async getCurrentBalance(_id: string): Promise<{ balance: number }> {
+    
+    const user = await this.repository.findById(
+      _id
+    )
+
+    return { balance: user.getBalance() }
+  }
+
+
   async authenticate(email: string, password: string): Promise<string> {
 
     try {

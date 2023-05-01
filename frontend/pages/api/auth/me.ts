@@ -10,8 +10,9 @@ import axios from 'axios';
   res: NextApiResponse
 ) {
   const token = req.session.user?.token;
+  const host = process.env.API_HOST
   
-  const response = await axios.get('http://api:80/api/users/current-user', { 
+  const response = await axios.get(`${host}/api/users/current-user`, { 
     headers: {
       'Authorization': `Bearer ${token}`
     }

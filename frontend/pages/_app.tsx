@@ -5,12 +5,10 @@ import { getSessionInfo } from '../utils/session-middleware'
 
 function AppComponent({ Component, pageProps, currentUser }: AppProps | any) {
     return (
-        <>
-            <Header currentUser={currentUser} />
-            <div className="container mx-auto">
+            <div className="container mx-auto pt-2">
+                <Header currentUser={currentUser} />
                 <Component currentUser={currentUser} {...pageProps} />
             </div>
-        </>
     )
 }
 

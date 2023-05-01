@@ -10,8 +10,10 @@ const Records: NextPage = () => {
                 <title>Arithmetic Operation App - Operation</title>
                 <meta name='viewport' content='initial-scale=1.0, width=device-width' />
             </Head>
-            <Balance currentUser={{}}/>
-            <CalculatorForm/>
+            <div className='my-9 max-w-md'>
+                <Balance />
+                <CalculatorForm/>
+            </div>
         </div>
     )
 }

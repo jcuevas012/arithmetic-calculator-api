@@ -7,22 +7,20 @@ interface CurrentUserProps {
 
 const Header: React.FC<CurrentUserProps> = ({ currentUser }) => {
     return (
-        <div className=' relative bg-white '>
-            <div className='max-w-7xl mx-auto px-4 sm:px-6 py-5'>
-                <div className='flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10'>
-                    <div className='flex justify-start lg:w-0 lg:flex-1'>
-                        <Link href={'/'}>
+                <div className="flex justify-between">
+                    <div className='flex'>
+                        <Link href="/">
                             <Image
                                 width={20}
                                 height={20}
                                 className='h-8 w-auto sm:h-10'
                                 src='https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg'
-                                alt=''
+                                alt='Home'
                             />
                         </Link>
                     </div>
 
-                    <div className='md:flex  space-x-4 items-center justify-end md:flex-1 lg:w-0'>
+                    <div className='space-x-4 items-center'>
                         {!currentUser ? (
                             <>
                                 <Link href={'/auth/signin'}>
@@ -53,8 +51,6 @@ const Header: React.FC<CurrentUserProps> = ({ currentUser }) => {
                         )}
                     </div>
                 </div>
-            </div>
-        </div>
     )
 }
 

@@ -1,9 +1,21 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 
-const OperationTypeDropDown: React.FC = () => {
 
-  const [operationTypes, setOperationTypes] = useState([])
+interface OperationTypes {
+  id: string
+  type: string
+  cost: number
+}
+
+
+interface OperationTypeDropDownTypes {
+  onChange: (value: string) => void
+}
+
+const OperationTypeDropDown: React.FC<OperationTypeDropDownTypes> = ({ onChange }) => {
+
+  const [operationTypes, setOperationTypes] = useState<OperationTypes[]>([])
 
   const fetchData = async () => {
     try {
@@ -15,16 +27,21 @@ const OperationTypeDropDown: React.FC = () => {
     }
   }
 
+
+  const _onChange = ({ target: { value } }: any) => {
+    onChange(value)
+  } 
+
+
   useEffect(() => {
     fetchData()
   }, [])
-
 
   return (
     <div className="flex-col py-20 ">
       <label >Operation Type:</label>
       <br/>
-      <select name="cars" id="cars">
+      <select name="cars" id="cars" onChange={_onChange} >
         { operationTypes.length && 
         operationTypes.map((operationType) => (<option key={operationType.id} value={operationType?.id}>{operationType?.type}</option>))}
         

@@ -11,6 +11,7 @@ import { ironOptions } from '../../../utils/config';
 ) {
 
     await req.session.destroy();
+    
    res.redirect(307, '/')
   
 }

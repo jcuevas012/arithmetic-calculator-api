@@ -13,9 +13,9 @@ const SignOutPage: NextPage = () => {
     })
 
     useEffect(() => {
-        // @ts-ignore
+        //@ts-ignore
         request()
-    }, [request])
+    }, [])
 
     return <p>Signing out ...</p>
 }

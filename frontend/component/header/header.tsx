@@ -7,8 +7,8 @@ interface CurrentUserProps {
 
 const Header: React.FC<CurrentUserProps> = ({ currentUser }) => {
     return (
-                <div className="flex justify-between">
-                    <div className='flex'>
+            <div className="flex justify-between ...">
+                    <div>
                         <Link href="/">
                             <Image
                                 width={20}
@@ -18,9 +18,9 @@ const Header: React.FC<CurrentUserProps> = ({ currentUser }) => {
                                 alt='Home'
                             />
                         </Link>
-                    </div>
 
-                    <div className='space-x-4 items-center'>
+                    </div>
+                    <div>
                         {!currentUser ? (
                             <>
                                 <Link href={'/auth/signin'}>
@@ -46,12 +46,16 @@ const Header: React.FC<CurrentUserProps> = ({ currentUser }) => {
                                     >
                                         Sign out{' '}
                                     </a>
-                                </Link>
-                            
-                        )}
+                                </Link>)
+                        }
                     </div>
-                </div>
+            </div>
     )
+
+
+                        
+                            
+    
 }
 
 export default Header

@@ -9,16 +9,12 @@ export class SequelizeOperationRepository implements IOperationRepository {
   identifier = 'sequelize-operation-repository';
   async create(record: Record): Promise<Record> {
       try {
-         const createdOperation = await SequelizeOperation.create({
-          type: record.getOperation().getType(),
-          cost: record.getOperation().getCost(),
-        });
 
-        const newOperation = new Operation(createdOperation.id, createdOperation.type, createdOperation.cost)
-        
+        const operation = record.getOperation()
+
         const createdRecord = await SequelizeRecord.create({
           userId: record.getUserId(),
-          operationId: newOperation.getId(),
+          operationId: operation.getId(),
           operationResponse: record.getOperationResponseAsString(),
           userBalance: record.getUserBalance(),
           amount: record.getAmount()
@@ -33,10 +29,10 @@ export class SequelizeOperationRepository implements IOperationRepository {
         })
 
 
-        const newRecord = new Record(record.getUserId(), newOperation)
+        const newRecord = new Record(record.getUserId(), operation)
         newRecord.setId(createdRecord.id)
         newRecord.setAmount(createdRecord.amount)
-        newRecord.setOperation(newOperation)
+        newRecord.setOperation(operation)
         newRecord.setUserId(createdRecord.userId)
         newRecord.setUserBalance(createdRecord.userBalance)
         newRecord.setDate(createdRecord.createdAt)
@@ -44,7 +40,8 @@ export class SequelizeOperationRepository implements IOperationRepository {
       
         return newRecord;
       } catch (err) {
-        console.log(err)
+        console.log('Log:', err)
+        console.log('Log:', err.message)
         throw new Error(this.createErrorMsg('Saving record operation', err.message))
       }
   }

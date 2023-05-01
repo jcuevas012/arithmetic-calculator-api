@@ -11,7 +11,7 @@ export class Record {
   protected date: string
 
 
-  constructor(userId: string, operation?: Operation) {
+  constructor(userId?: string, operation?: Operation) {
     this.userId = userId
     this.operation = operation && operation
   }

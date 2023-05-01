@@ -10,6 +10,8 @@ interface RecordRow {
    userId: string;
    operationId: string;
    operationResponse: string;
+   operation?: any
+   
 }
 
 export class SequelizeRecord extends Model<RecordRow> {
@@ -20,6 +22,7 @@ export class SequelizeRecord extends Model<RecordRow> {
   declare userBalance: number;
   declare operationResponse: string;
   declare createdAt: string;
+  declare operation?: any
 }
 
 SequelizeRecord.init({
@@ -28,19 +31,19 @@ SequelizeRecord.init({
     primaryKey: true,
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
-  }, 
+  },
   amount: {
     allowNull: false,
     type: DataTypes.DECIMAL,
-  }, 
+  },
   userBalance: {
     allowNull: false,
     type: DataTypes.DECIMAL,
-  }, 
+  },
   operationResponse: {
     allowNull: false,
     type: DataTypes.STRING,
-  }, 
+  },
   userId: {
     allowNull: false,
     type: DataTypes.UUIDV4,

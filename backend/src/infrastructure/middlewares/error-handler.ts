@@ -8,7 +8,6 @@ export const errorHandler = (
   res: Response,
   _next: NextFunction
 ) => {
-
   if (err.name === "UnauthorizedError") {
     res.status(401).send({
       errors: ['Not Authorize'],

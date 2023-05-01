@@ -13,7 +13,7 @@ export class SequelizeUserRepository implements IUserRepository {
         username: user.getUserName(),
         password: user.getPassword(),
         status: user.getStatus(),
-        balance: 100
+        balance: 5000
       });
 
       const newUser = new User()

@@ -41,7 +41,9 @@ export class OperationService {
 
         return record;
       } catch (error) {
-          throw new BadRequestError('Error with addition operation')
+          console.log('Log:::', error)
+          console.log('Log:::', error.message)
+          throw new Error('Error with addition operation')
       }
   }
 
@@ -52,6 +54,7 @@ export class OperationService {
 
       return operations
     } catch (error) {
+        console.log('Log:', error)
         console.log('Log:', error.message)
         throw new BadRequestError('Error fetching operation list')
     }

@@ -1,3 +1,4 @@
+import CustomError from "../../domain/entities/Error/custom-error";
 import { OperationPayload, OperationService } from "../../domain/services/OperationService";
 import { IController, IRequest, IResponse } from "../adapters/controller.interface";
 
@@ -23,10 +24,20 @@ export class OperationExecuterController implements IController {
       }
 
     } catch (err) {
+
+      if (err instanceof CustomError) {
+        return {
+          status: 400,
+          payload: {
+            errors: [ err.message ]
+          }
+        }  
+      }
+
       return {
         status: 500,
         payload: {
-          error: ""
+          errors: ['Something when wrong executing operation']
         }
       }
     }

@@ -1,7 +1,7 @@
 import { body } from "express-validator"
 
 const signUpValidator = () => [
-  body("email").isEmail().withMessage("Email must be valid"),
+  body("username").isEmail().withMessage("Email must be valid"),
 
   body("password")
     .trim()

@@ -10,6 +10,7 @@ export class UserController {
   async signUp(req: Request, res: Response) {
     const { username, password } = req.body;
   
+      
       const newUser = new User()
       newUser.setUsername(username)
       newUser.setPassword(password)

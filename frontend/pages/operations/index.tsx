@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Balance from '../../component/balance/balance'
-import CalculatorForm from '../../component/calculator-form/calculator-form'
+import Balance from '../../component/balance'
+import CalculatorForm from '../../component/calculator-form'
 
 const Records: NextPage = () => {
     return (

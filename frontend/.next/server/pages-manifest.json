@@ -4,6 +4,6 @@
   "/_document": "pages/_document.js",
   "/api/auth/me": "pages/api/auth/me.js",
   "/api/auth/sign-out": "pages/api/auth/sign-out.js",
-  "/api/auth/sign-in": "pages/api/auth/sign-in.js",
-  "/": "pages/index.js"
+  "/": "pages/index.js",
+  "/api/auth/sign-up": "pages/api/auth/sign-up.js"
 }

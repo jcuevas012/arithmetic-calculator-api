@@ -7,7 +7,7 @@ interface CurrentUserProps {
 
 const Header: React.FC<CurrentUserProps> = ({ currentUser }) => {
     return (
-            <div className="flex justify-between ...">
+            <div className="flex justify-between nav-container">
                     <div>
                         <Link href="/">
                             <Image

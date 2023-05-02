@@ -1,8 +1,8 @@
 
 import { withIronSessionApiRoute } from 'iron-session/next';
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { ironOptions } from '../../../utils/config';
 import axios from 'axios';
+import { ironOptions } from '../../../utils/config';
 
 
  async function handler(

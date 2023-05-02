@@ -1,95 +1,247 @@
 "use strict";
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 (() => {
 var exports = {};
-exports.id = "pages/operations";
-exports.ids = ["pages/operations"];
+exports.id = 394;
+exports.ids = [394];
 exports.modules = {
 
-/***/ "./component/balance.tsx":
-/*!*******************************!*\
-  !*** ./component/balance.tsx ***!
-  \*******************************/
+/***/ 5216:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"axios\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nconst Balance = ()=>{\n    const { 0: balance , 1: setBalance  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);\n    const fetchData = async ()=>{\n        try {\n            const { data  } = await axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/current-balance');\n            setBalance(data.balance | 0);\n        } catch (error) {}\n    };\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{\n        fetchData();\n    }, []);\n    return(/*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"article\", {\n            className: \"rounded-lg border border-gray-100 bg-white p-6\",\n            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"flex items-center justify-between\",\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        children: [\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                                className: \"text-sm text-gray-500\",\n                                children: \"Balance\"\n                            }, void 0, false, {\n                                fileName: \"/app/component/balance.tsx\",\n                                lineNumber: 26,\n                                columnNumber: 7\n                            }, undefined),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                                className: \"text-2xl font-medium text-gray-900\",\n                                children: [\n                                    \"$ \",\n                                    balance\n                                ]\n                            }, void 0, true, {\n                                fileName: \"/app/component/balance.tsx\",\n                                lineNumber: 28,\n                                columnNumber: 7\n                            }, undefined)\n                        ]\n                    }, void 0, true, {\n                        fileName: \"/app/component/balance.tsx\",\n                        lineNumber: 25,\n                        columnNumber: 5\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                        className: \"rounded-full bg-blue-100 p-3 text-blue-600\",\n                        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"svg\", {\n                            xmlns: \"http://www.w3.org/2000/svg\",\n                            className: \"h-8 w-8\",\n                            fill: \"none\",\n                            viewBox: \"0 0 24 24\",\n                            stroke: \"currentColor\",\n                            strokeWidth: \"2\",\n                            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"path\", {\n                                strokeLinecap: \"round\",\n                                strokeLinejoin: \"round\",\n                                d: \"M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z\"\n                            }, void 0, false, {\n                                fileName: \"/app/component/balance.tsx\",\n                                lineNumber: 40,\n                                columnNumber: 9\n                            }, undefined)\n                        }, void 0, false, {\n                            fileName: \"/app/component/balance.tsx\",\n                            lineNumber: 32,\n                            columnNumber: 7\n                        }, undefined)\n                    }, void 0, false, {\n                        fileName: \"/app/component/balance.tsx\",\n                        lineNumber: 31,\n                        columnNumber: 5\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/app/component/balance.tsx\",\n                lineNumber: 24,\n                columnNumber: 3\n            }, undefined)\n        }, void 0, false, {\n            fileName: \"/app/component/balance.tsx\",\n            lineNumber: 23,\n            columnNumber: 4\n        }, undefined)\n    }, void 0, false));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Balance);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9jb21wb25lbnQvYmFsYW5jZS50c3guanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7QUFBMkM7QUFDbEI7QUFFekIsS0FBSyxDQUFDRyxPQUFPLE9BQW1CLENBQUM7SUFFL0IsS0FBSyxNQUFFQyxPQUFPLE1BQUVDLFVBQVUsTUFBSUosK0NBQVEsQ0FBQyxDQUFDO0lBRXhDLEtBQUssQ0FBQ0ssU0FBUyxhQUFlLENBQUM7UUFDN0IsR0FBRyxDQUFDLENBQUM7WUFDSCxLQUFLLENBQUMsQ0FBQyxDQUFDQyxJQUFJLEVBQUMsQ0FBQyxHQUFHLEtBQUssQ0FBQ0wsZ0RBQVMsQ0FBQyxDQUFzQjtZQUN2REcsVUFBVSxDQUFDRSxJQUFJLENBQUNILE9BQU8sR0FBRyxDQUFDO1FBQzdCLENBQUMsQ0FBQyxLQUFLLEVBQUVLLEtBQUssRUFBRSxDQUFDLENBQ2hCO0lBQ0gsQ0FBQztJQUVEVCxnREFBUyxLQUFPLENBQUM7UUFDZk0sU0FBUztJQUNYLENBQUMsRUFBRSxDQUFDLENBQUM7SUFHSCxNQUFNOzhGQUVOSSxDQUFPO1lBQUNDLFNBQVMsRUFBQyxDQUFnRDtrR0FDbkVDLENBQUc7Z0JBQUNELFNBQVMsRUFBQyxDQUFtQzs7Z0dBQy9DQyxDQUFHOzt3R0FDREMsQ0FBQztnQ0FBQ0YsU0FBUyxFQUFDLENBQXVCOzBDQUFDLENBQU87Ozs7Ozt3R0FFM0NFLENBQUM7Z0NBQUNGLFNBQVMsRUFBQyxDQUFvQzs7b0NBQUMsQ0FBRTtvQ0FBQ1AsT0FBTzs7Ozs7Ozs7Ozs7OztnR0FHN0RVLENBQUk7d0JBQUNILFNBQVMsRUFBQyxDQUE0Qzs4R0FDekRJLENBQUc7NEJBQ0ZDLEtBQUssRUFBQyxDQUE0Qjs0QkFDbENMLFNBQVMsRUFBQyxDQUFTOzRCQUNuQk0sSUFBSSxFQUFDLENBQU07NEJBQ1hDLE9BQU8sRUFBQyxDQUFXOzRCQUNuQkMsTUFBTSxFQUFDLENBQWM7NEJBQ3JCQyxXQUFXLEVBQUMsQ0FBRztrSEFFZEMsQ0FBSTtnQ0FDSEMsYUFBYSxFQUFDLENBQU87Z0NBQ3JCQyxjQUFjLEVBQUMsQ0FBTztnQ0FDdEJDLENBQUMsRUFBQyxDQUFvSjs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQVloSyxDQUFDO0FBRUQsaUVBQWVyQixPQUFPIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vYXJpdGhtZXRpYy13ZWItY2xpZW50Ly4vY29tcG9uZW50L2JhbGFuY2UudHN4PzM0ZGUiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlRWZmZWN0LCB1c2VTdGF0ZSB9IGZyb20gXCJyZWFjdFwiXG5pbXBvcnQgYXhpb3MgZnJvbSBcImF4aW9zXCJcblxuY29uc3QgQmFsYW5jZTogUmVhY3QuRkMgPSAoKSA9PiB7XG5cbiAgY29uc3QgW2JhbGFuY2UsIHNldEJhbGFuY2VdID0gdXNlU3RhdGUoMClcblxuICBjb25zdCBmZXRjaERhdGEgPSBhc3luYyAoKSA9PiB7XG4gICAgdHJ5IHtcbiAgICAgIGNvbnN0IHsgZGF0YSB9ID0gYXdhaXQgYXhpb3MuZ2V0KCcvYXBpL2N1cnJlbnQtYmFsYW5jZScpXG4gICAgICBzZXRCYWxhbmNlKGRhdGEuYmFsYW5jZSB8IDApXG4gICAgfSBjYXRjaCAoZXJyb3IpIHtcbiAgICB9XG4gIH1cblxuICB1c2VFZmZlY3QoKCkgPT4ge1xuICAgIGZldGNoRGF0YSgpXG4gIH0sIFtdKVxuXG5cbiAgICByZXR1cm4gKFxuICAgICAgICA8PlxuICAgPGFydGljbGUgY2xhc3NOYW1lPVwicm91bmRlZC1sZyBib3JkZXIgYm9yZGVyLWdyYXktMTAwIGJnLXdoaXRlIHAtNlwiPlxuICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgIDxkaXY+XG4gICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS01MDBcIj5CYWxhbmNlPC9wPlxuXG4gICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LW1lZGl1bSB0ZXh0LWdyYXktOTAwXCI+JCB7YmFsYW5jZX08L3A+XG4gICAgPC9kaXY+XG5cbiAgICA8c3BhbiBjbGFzc05hbWU9XCJyb3VuZGVkLWZ1bGwgYmctYmx1ZS0xMDAgcC0zIHRleHQtYmx1ZS02MDBcIj5cbiAgICAgIDxzdmdcbiAgICAgICAgeG1sbnM9XCJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Z1wiXG4gICAgICAgIGNsYXNzTmFtZT1cImgtOCB3LThcIlxuICAgICAgICBmaWxsPVwibm9uZVwiXG4gICAgICAgIHZpZXdCb3g9XCIwIDAgMjQgMjRcIlxuICAgICAgICBzdHJva2U9XCJjdXJyZW50Q29sb3JcIlxuICAgICAgICBzdHJva2VXaWR0aD1cIjJcIlxuICAgICAgPlxuICAgICAgICA8cGF0aFxuICAgICAgICAgIHN0cm9rZUxpbmVjYXA9XCJyb3VuZFwiXG4gICAgICAgICAgc3Ryb2tlTGluZWpvaW49XCJyb3VuZFwiXG4gICAgICAgICAgZD1cIk0xNyA5VjdhMiAyIDAgMDAtMi0ySDVhMiAyIDAgMDAtMiAydjZhMiAyIDAgMDAyIDJoMm0yIDRoMTBhMiAyIDAgMDAyLTJ2LTZhMiAyIDAgMDAtMi0ySDlhMiAyIDAgMDAtMiAydjZhMiAyIDAgMDAyIDJ6bTctNWEyIDIgMCAxMS00IDAgMiAyIDAgMDE0IDB6XCJcbiAgICAgICAgLz5cbiAgICAgIDwvc3ZnPlxuICAgIDwvc3Bhbj5cbiAgPC9kaXY+XG5cbjwvYXJ0aWNsZT5cblxuXG48Lz5cblxuICAgIClcbn1cblxuZXhwb3J0IGRlZmF1bHQgQmFsYW5jZVxuIl0sIm5hbWVzIjpbInVzZUVmZmVjdCIsInVzZVN0YXRlIiwiYXhpb3MiLCJCYWxhbmNlIiwiYmFsYW5jZSIsInNldEJhbGFuY2UiLCJmZXRjaERhdGEiLCJkYXRhIiwiZ2V0IiwiZXJyb3IiLCJhcnRpY2xlIiwiY2xhc3NOYW1lIiwiZGl2IiwicCIsInNwYW4iLCJzdmciLCJ4bWxucyIsImZpbGwiLCJ2aWV3Qm94Iiwic3Ryb2tlIiwic3Ryb2tlV2lkdGgiLCJwYXRoIiwic3Ryb2tlTGluZWNhcCIsInN0cm9rZUxpbmVqb2luIiwiZCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./component/balance.tsx\n");
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ operations)
+});
+
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(997);
+// EXTERNAL MODULE: external "next/head"
+var head_ = __webpack_require__(968);
+var head_default = /*#__PURE__*/__webpack_require__.n(head_);
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__(6689);
+// EXTERNAL MODULE: external "axios"
+var external_axios_ = __webpack_require__(2167);
+var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_);
+;// CONCATENATED MODULE: ./component/balance.tsx
+
+
+
+const Balance = ()=>{
+    const { 0: balance , 1: setBalance  } = (0,external_react_.useState)(0);
+    const fetchData = async ()=>{
+        try {
+            const { data  } = await external_axios_default().get('/api/current-balance');
+            setBalance(data.balance | 0);
+        } catch (error) {}
+    };
+    (0,external_react_.useEffect)(()=>{
+        fetchData();
+    }, []);
+    return(/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+        children: /*#__PURE__*/ jsx_runtime_.jsx("article", {
+            className: "rounded-lg border border-gray-100 bg-white p-6",
+            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: "flex items-center justify-between",
+                children: [
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                className: "text-sm text-gray-500",
+                                children: "Balance"
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
+                                className: "text-2xl font-medium text-gray-900",
+                                children: [
+                                    "$ ",
+                                    balance
+                                ]
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                        className: "rounded-full bg-blue-100 p-3 text-blue-600",
+                        children: /*#__PURE__*/ jsx_runtime_.jsx("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            className: "h-8 w-8",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            strokeWidth: "2",
+                            children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round",
+                                d: "M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                            })
+                        })
+                    })
+                ]
+            })
+        })
+    }));
+};
+/* harmony default export */ const balance = (Balance);
+
+;// CONCATENATED MODULE: ./component/operation-dropdown.tsx
+
+
+
+const OperationTypeDropDown = ({ onChange  })=>{
+    const { 0: operationTypes , 1: setOperationTypes  } = (0,external_react_.useState)([]);
+    const fetchData = async ()=>{
+        try {
+            const { data  } = await external_axios_default().get('/api/operations/types');
+            setOperationTypes(data || []);
+        } catch (error) {
+            console.log('Error loading data', error);
+        }
+    };
+    const _onChange = ({ target: { value  }  })=>{
+        onChange(value);
+    };
+    (0,external_react_.useEffect)(()=>{
+        fetchData();
+    }, []);
+    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        className: "flex-col py-20 ",
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx("label", {
+                children: "Operation Type:"
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("br", {}),
+            /*#__PURE__*/ jsx_runtime_.jsx("select", {
+                name: "cars",
+                id: "cars",
+                onChange: _onChange,
+                children: operationTypes.length && operationTypes.map((operationType)=>{
+                    /*#__PURE__*/ return jsx_runtime_.jsx("option", {
+                        value: operationType === null || operationType === void 0 ? void 0 : operationType.id,
+                        children: operationType === null || operationType === void 0 ? void 0 : operationType.type
+                    }, operationType.id);
+                })
+            })
+        ]
+    }));
+};
+/* harmony default export */ const operation_dropdown = (OperationTypeDropDown);
+
+;// CONCATENATED MODULE: ./component/calculator-form.tsx
+
+
+const CalculatorForm = ({ currentUser  })=>{
+    const onChange = ()=>{};
+    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        className: "flex-col py-20 ",
+        children: [
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: "mt-10",
+                children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx("label", {
+                        className: "block text-sm font-medium leading-6 text-gray-900 ",
+                        children: "First Value"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: "relative mt-15 rounded-md shadow-sm",
+                        children: /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                            type: "text",
+                            name: "price",
+                            id: "price",
+                            className: "block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+                            placeholder: "0"
+                        })
+                    })
+                ]
+            }),
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: "mt-10",
+                children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx("label", {
+                        className: "block text-sm font-medium leading-6 text-gray-900 ",
+                        children: "Second Value"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: "relative mt-15 rounded-md shadow-sm",
+                        children: /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                            type: "text",
+                            name: "price",
+                            id: "price",
+                            className: "block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+                            placeholder: "0"
+                        })
+                    })
+                ]
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx(operation_dropdown, {
+                onChange: onChange
+            })
+        ]
+    }));
+};
+/* harmony default export */ const calculator_form = (CalculatorForm);
+
+;// CONCATENATED MODULE: ./pages/operations/index.tsx
+
+
+
+
+const Records = ()=>{
+    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        className: "flex",
+        children: [
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)((head_default()), {
+                children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx("title", {
+                        children: "Arithmetic Operation App - Operation"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        name: "viewport",
+                        content: "initial-scale=1.0, width=device-width"
+                    })
+                ]
+            }),
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: "my-9 max-w-md",
+                children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx(balance, {}),
+                    /*#__PURE__*/ jsx_runtime_.jsx(calculator_form, {})
+                ]
+            })
+        ]
+    }));
+};
+/* harmony default export */ const operations = (Records);
+
 
 /***/ }),
 
-/***/ "./component/calculator-form.tsx":
-/*!***************************************!*\
-  !*** ./component/calculator-form.tsx ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _operation_dropdown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./operation-dropdown */ \"./component/operation-dropdown.tsx\");\n\n\nconst CalculatorForm = ({ currentUser  })=>{\n    const onChange = ()=>{};\n    return(/*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"flex-col py-20 \",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"mt-10\",\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"label\", {\n                        className: \"block text-sm font-medium leading-6 text-gray-900 \",\n                        children: \"First Value\"\n                    }, void 0, false, {\n                        fileName: \"/app/component/calculator-form.tsx\",\n                        lineNumber: 17,\n                        columnNumber: 21\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: \"relative mt-15 rounded-md shadow-sm\",\n                        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n                            type: \"text\",\n                            name: \"price\",\n                            id: \"price\",\n                            className: \"block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6\",\n                            placeholder: \"0\"\n                        }, void 0, false, {\n                            fileName: \"/app/component/calculator-form.tsx\",\n                            lineNumber: 19,\n                            columnNumber: 25\n                        }, undefined)\n                    }, void 0, false, {\n                        fileName: \"/app/component/calculator-form.tsx\",\n                        lineNumber: 18,\n                        columnNumber: 21\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/app/component/calculator-form.tsx\",\n                lineNumber: 16,\n                columnNumber: 17\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"mt-10\",\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"label\", {\n                        className: \"block text-sm font-medium leading-6 text-gray-900 \",\n                        children: \"Second Value\"\n                    }, void 0, false, {\n                        fileName: \"/app/component/calculator-form.tsx\",\n                        lineNumber: 24,\n                        columnNumber: 21\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: \"relative mt-15 rounded-md shadow-sm\",\n                        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n                            type: \"text\",\n                            name: \"price\",\n                            id: \"price\",\n                            className: \"block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6\",\n                            placeholder: \"0\"\n                        }, void 0, false, {\n                            fileName: \"/app/component/calculator-form.tsx\",\n                            lineNumber: 26,\n                            columnNumber: 25\n                        }, undefined)\n                    }, void 0, false, {\n                        fileName: \"/app/component/calculator-form.tsx\",\n                        lineNumber: 25,\n                        columnNumber: 21\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/app/component/calculator-form.tsx\",\n                lineNumber: 23,\n                columnNumber: 13\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_operation_dropdown__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n                onChange: onChange\n            }, void 0, false, {\n                fileName: \"/app/component/calculator-form.tsx\",\n                lineNumber: 29,\n                columnNumber: 17\n            }, undefined)\n        ]\n    }, void 0, true, {\n        fileName: \"/app/component/calculator-form.tsx\",\n        lineNumber: 15,\n        columnNumber: 13\n    }, undefined));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CalculatorForm);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9jb21wb25lbnQvY2FsY3VsYXRvci1mb3JtLnRzeC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7OztBQUF3RDtBQU14RCxLQUFLLENBQUNDLGNBQWMsSUFBZ0MsQ0FBQyxDQUFDQyxXQUFXLEVBQUMsQ0FBQyxHQUFLLENBQUM7SUFFckUsS0FBSyxDQUFDQyxRQUFRLE9BQVMsQ0FBQyxDQUV2QjtJQUdELE1BQU0sNkVBQ0dDLENBQUc7UUFBQ0MsU0FBUyxFQUFDLENBQWlCOzt3RkFDM0JELENBQUc7Z0JBQUNDLFNBQVMsRUFBQyxDQUFPOztnR0FDakJDLENBQUs7d0JBQUVELFNBQVMsRUFBQyxDQUFvRDtrQ0FBQyxDQUFXOzs7Ozs7Z0dBQ2pGRCxDQUFHO3dCQUFDQyxTQUFTLEVBQUMsQ0FBcUM7OEdBQy9DRSxDQUFLOzRCQUFDQyxJQUFJLEVBQUMsQ0FBTTs0QkFBQ0MsSUFBSSxFQUFDLENBQU87NEJBQUNDLEVBQUUsRUFBQyxDQUFPOzRCQUFDTCxTQUFTLEVBQUMsQ0FBd007NEJBQUNNLFdBQVcsRUFBQyxDQUFHOzs7Ozs7Ozs7Ozs7Ozs7Ozt3RkFJeFJQLENBQUc7Z0JBQUNDLFNBQVMsRUFBQyxDQUFPOztnR0FDYkMsQ0FBSzt3QkFBRUQsU0FBUyxFQUFDLENBQW9EO2tDQUFDLENBQVk7Ozs7OztnR0FDbEZELENBQUc7d0JBQUNDLFNBQVMsRUFBQyxDQUFxQzs4R0FDL0NFLENBQUs7NEJBQUNDLElBQUksRUFBQyxDQUFNOzRCQUFDQyxJQUFJLEVBQUMsQ0FBTzs0QkFBQ0MsRUFBRSxFQUFDLENBQU87NEJBQUNMLFNBQVMsRUFBQyxDQUF3TTs0QkFBQ00sV0FBVyxFQUFDLENBQUc7Ozs7Ozs7Ozs7Ozs7Ozs7O3dGQUdwUlgsMkRBQXFCO2dCQUFDRyxRQUFRLEVBQUVBLFFBQVE7Ozs7Ozs7Ozs7OztBQUd6RCxDQUFDO0FBRUQsaUVBQWVGLGNBQWMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9hcml0aG1ldGljLXdlYi1jbGllbnQvLi9jb21wb25lbnQvY2FsY3VsYXRvci1mb3JtLnRzeD9lYTFkIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBPcGVyYXRpb25UeXBlRHJvcERvd24gZnJvbSBcIi4vb3BlcmF0aW9uLWRyb3Bkb3duXCJcblxuaW50ZXJmYWNlIEN1cnJlbnRVc2VyUHJvcHMge1xuICAgIGN1cnJlbnRVc2VyPzogeyBlbWFpbDogc3RyaW5nIH1cbn1cblxuY29uc3QgQ2FsY3VsYXRvckZvcm06IFJlYWN0LkZDPEN1cnJlbnRVc2VyUHJvcHM+ID0gKHsgY3VycmVudFVzZXIgfSkgPT4ge1xuXG4gICAgY29uc3Qgb25DaGFuZ2UgPSAoKSA9PiB7XG4gICAgICAgIFxuICAgIH1cblxuXG4gICAgcmV0dXJuIChcbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleC1jb2wgcHktMjAgXCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC0xMFwiPlxuICAgICAgICAgICAgICAgICAgICA8bGFiZWwgIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gbGVhZGluZy02IHRleHQtZ3JheS05MDAgXCI+Rmlyc3QgVmFsdWU8L2xhYmVsPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInJlbGF0aXZlIG10LTE1IHJvdW5kZWQtbWQgc2hhZG93LXNtXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICA8aW5wdXQgdHlwZT1cInRleHRcIiBuYW1lPVwicHJpY2VcIiBpZD1cInByaWNlXCIgY2xhc3NOYW1lPVwiYmxvY2sgdy1mdWxsIHJvdW5kZWQtbWQgYm9yZGVyLTAgcHktMS41IHBsLTcgcHItMjAgdGV4dC1ncmF5LTkwMCByaW5nLTEgcmluZy1pbnNldCByaW5nLWdyYXktMzAwIHBsYWNlaG9sZGVyOnRleHQtZ3JheS00MDAgZm9jdXM6cmluZy0yIGZvY3VzOnJpbmctaW5zZXQgZm9jdXM6cmluZy1pbmRpZ28tNjAwIHNtOnRleHQtc20gc206bGVhZGluZy02XCIgcGxhY2Vob2xkZXI9XCIwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTEwXCI+XG4gICAgICAgICAgICAgICAgICAgIDxsYWJlbCAgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSBsZWFkaW5nLTYgdGV4dC1ncmF5LTkwMCBcIj5TZWNvbmQgVmFsdWU8L2xhYmVsPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInJlbGF0aXZlIG10LTE1IHJvdW5kZWQtbWQgc2hhZG93LXNtXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICA8aW5wdXQgdHlwZT1cInRleHRcIiBuYW1lPVwicHJpY2VcIiBpZD1cInByaWNlXCIgY2xhc3NOYW1lPVwiYmxvY2sgdy1mdWxsIHJvdW5kZWQtbWQgYm9yZGVyLTAgcHktMS41IHBsLTcgcHItMjAgdGV4dC1ncmF5LTkwMCByaW5nLTEgcmluZy1pbnNldCByaW5nLWdyYXktMzAwIHBsYWNlaG9sZGVyOnRleHQtZ3JheS00MDAgZm9jdXM6cmluZy0yIGZvY3VzOnJpbmctaW5zZXQgZm9jdXM6cmluZy1pbmRpZ28tNjAwIHNtOnRleHQtc20gc206bGVhZGluZy02XCIgcGxhY2Vob2xkZXI9XCIwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPE9wZXJhdGlvblR5cGVEcm9wRG93biBvbkNoYW5nZT17b25DaGFuZ2V9Lz5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgKVxufVxuXG5leHBvcnQgZGVmYXVsdCBDYWxjdWxhdG9yRm9ybVxuIl0sIm5hbWVzIjpbIk9wZXJhdGlvblR5cGVEcm9wRG93biIsIkNhbGN1bGF0b3JGb3JtIiwiY3VycmVudFVzZXIiLCJvbkNoYW5nZSIsImRpdiIsImNsYXNzTmFtZSIsImxhYmVsIiwiaW5wdXQiLCJ0eXBlIiwibmFtZSIsImlkIiwicGxhY2Vob2xkZXIiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./component/calculator-form.tsx\n");
-
-/***/ }),
-
-/***/ "./component/operation-dropdown.tsx":
-/*!******************************************!*\
-  !*** ./component/operation-dropdown.tsx ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"axios\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nconst OperationTypeDropDown = ({ onChange  })=>{\n    const { 0: operationTypes , 1: setOperationTypes  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);\n    const fetchData = async ()=>{\n        try {\n            const { data  } = await axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/operations/types');\n            setOperationTypes(data || []);\n        } catch (error) {\n            console.log('Error loading data', error);\n        }\n    };\n    const _onChange = ({ target: { value  }  })=>{\n        onChange(value);\n    };\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{\n        fetchData();\n    }, []);\n    return(/*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"flex-col py-20 \",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"label\", {\n                children: \"Operation Type:\"\n            }, void 0, false, {\n                fileName: \"/app/component/operation-dropdown.tsx\",\n                lineNumber: 42,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"br\", {}, void 0, false, {\n                fileName: \"/app/component/operation-dropdown.tsx\",\n                lineNumber: 43,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"select\", {\n                name: \"cars\",\n                id: \"cars\",\n                onChange: _onChange,\n                children: operationTypes.length && operationTypes.map((operationType)=>{\n                    /*#__PURE__*/ return (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"option\", {\n                        value: operationType === null || operationType === void 0 ? void 0 : operationType.id,\n                        children: operationType === null || operationType === void 0 ? void 0 : operationType.type\n                    }, operationType.id, false, {\n                        fileName: \"/app/component/operation-dropdown.tsx\",\n                        lineNumber: 46,\n                        columnNumber: 48\n                    }, undefined);\n                })\n            }, void 0, false, {\n                fileName: \"/app/component/operation-dropdown.tsx\",\n                lineNumber: 44,\n                columnNumber: 7\n            }, undefined)\n        ]\n    }, void 0, true, {\n        fileName: \"/app/component/operation-dropdown.tsx\",\n        lineNumber: 41,\n        columnNumber: 5\n    }, undefined));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OperationTypeDropDown);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9jb21wb25lbnQvb3BlcmF0aW9uLWRyb3Bkb3duLnRzeC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQUEyQztBQUNsQjtBQWN6QixLQUFLLENBQUNHLHFCQUFxQixJQUEwQyxDQUFDLENBQUNDLFFBQVEsRUFBQyxDQUFDLEdBQUssQ0FBQztJQUVyRixLQUFLLE1BQUVDLGNBQWMsTUFBRUMsaUJBQWlCLE1BQUlMLCtDQUFRLENBQW1CLENBQUMsQ0FBQztJQUV6RSxLQUFLLENBQUNNLFNBQVMsYUFBZSxDQUFDO1FBQzdCLEdBQUcsQ0FBQyxDQUFDO1lBQ0gsS0FBSyxDQUFDLENBQUMsQ0FBQ0MsSUFBSSxFQUFDLENBQUMsR0FBRyxLQUFLLENBQUNOLGdEQUFTLENBQUMsQ0FBdUI7WUFDeERJLGlCQUFpQixDQUFDRSxJQUFJLElBQUksQ0FBQyxDQUFDO1FBRTlCLENBQUMsQ0FBQyxLQUFLLEVBQUVFLEtBQUssRUFBRSxDQUFDO1lBQ2ZDLE9BQU8sQ0FBQ0MsR0FBRyxDQUFDLENBQW9CLHFCQUFFRixLQUFLO1FBQ3pDLENBQUM7SUFDSCxDQUFDO0lBR0QsS0FBSyxDQUFDRyxTQUFTLElBQUksQ0FBQyxDQUFDQyxNQUFNLEVBQUUsQ0FBQyxDQUFDQyxLQUFLLEVBQUMsQ0FBQyxFQUFNLENBQUMsR0FBSyxDQUFDO1FBQ2pEWCxRQUFRLENBQUNXLEtBQUs7SUFDaEIsQ0FBQztJQUdEZixnREFBUyxLQUFPLENBQUM7UUFDZk8sU0FBUztJQUNYLENBQUMsRUFBRSxDQUFDLENBQUM7SUFFTCxNQUFNLDZFQUNIUyxDQUFHO1FBQUNDLFNBQVMsRUFBQyxDQUFpQjs7d0ZBQzdCQyxDQUFLOzBCQUFFLENBQWU7Ozs7Ozt3RkFDdEJDLENBQUU7Ozs7O3dGQUNGQyxDQUFNO2dCQUFDQyxJQUFJLEVBQUMsQ0FBTTtnQkFBQ0MsRUFBRSxFQUFDLENBQU07Z0JBQUNsQixRQUFRLEVBQUVTLFNBQVM7MEJBQzdDUixjQUFjLENBQUNrQixNQUFNLElBQ3ZCbEIsY0FBYyxDQUFDbUIsR0FBRyxFQUFFQyxhQUFhO2tDQUFNLE1BQU0sK0RBQUxDLENBQU07d0JBQXdCWCxLQUFLLEVBQUVVLGFBQWEsYUFBYkEsYUFBYSxLQUFiQSxJQUFJLENBQUpBLENBQWlCLEdBQWpCQSxJQUFJLENBQUpBLENBQWlCLEdBQWpCQSxhQUFhLENBQUVILEVBQUU7a0NBQUdHLGFBQWEsYUFBYkEsYUFBYSxLQUFiQSxJQUFJLENBQUpBLENBQW1CLEdBQW5CQSxJQUFJLENBQUpBLENBQW1CLEdBQW5CQSxhQUFhLENBQUVFLElBQUk7dUJBQWhFRixhQUFhLENBQUNILEVBQUU7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSzVFLENBQUM7QUFFRCxpRUFBZW5CLHFCQUFxQiIsInNvdXJjZXMiOlsid2VicGFjazovL2FyaXRobWV0aWMtd2ViLWNsaWVudC8uL2NvbXBvbmVudC9vcGVyYXRpb24tZHJvcGRvd24udHN4P2NiNzEiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlRWZmZWN0LCB1c2VTdGF0ZSB9IGZyb20gXCJyZWFjdFwiXG5pbXBvcnQgYXhpb3MgZnJvbSBcImF4aW9zXCJcblxuXG5pbnRlcmZhY2UgT3BlcmF0aW9uVHlwZXMge1xuICBpZDogc3RyaW5nXG4gIHR5cGU6IHN0cmluZ1xuICBjb3N0OiBudW1iZXJcbn1cblxuXG5pbnRlcmZhY2UgT3BlcmF0aW9uVHlwZURyb3BEb3duVHlwZXMge1xuICBvbkNoYW5nZTogKHZhbHVlOiBzdHJpbmcpID0+IHZvaWRcbn1cblxuY29uc3QgT3BlcmF0aW9uVHlwZURyb3BEb3duOiBSZWFjdC5GQzxPcGVyYXRpb25UeXBlRHJvcERvd25UeXBlcz4gPSAoeyBvbkNoYW5nZSB9KSA9PiB7XG5cbiAgY29uc3QgW29wZXJhdGlvblR5cGVzLCBzZXRPcGVyYXRpb25UeXBlc10gPSB1c2VTdGF0ZTxPcGVyYXRpb25UeXBlc1tdPihbXSlcblxuICBjb25zdCBmZXRjaERhdGEgPSBhc3luYyAoKSA9PiB7XG4gICAgdHJ5IHtcbiAgICAgIGNvbnN0IHsgZGF0YSB9ID0gYXdhaXQgYXhpb3MuZ2V0KCcvYXBpL29wZXJhdGlvbnMvdHlwZXMnKVxuICAgICAgc2V0T3BlcmF0aW9uVHlwZXMoZGF0YSB8fCBbXSlcbiAgICAgIFxuICAgIH0gY2F0Y2ggKGVycm9yKSB7XG4gICAgICBjb25zb2xlLmxvZygnRXJyb3IgbG9hZGluZyBkYXRhJywgZXJyb3IpXG4gICAgfVxuICB9XG5cblxuICBjb25zdCBfb25DaGFuZ2UgPSAoeyB0YXJnZXQ6IHsgdmFsdWUgfSB9OiBhbnkpID0+IHtcbiAgICBvbkNoYW5nZSh2YWx1ZSlcbiAgfSBcblxuXG4gIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgZmV0Y2hEYXRhKClcbiAgfSwgW10pXG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgtY29sIHB5LTIwIFwiPlxuICAgICAgPGxhYmVsID5PcGVyYXRpb24gVHlwZTo8L2xhYmVsPlxuICAgICAgPGJyLz5cbiAgICAgIDxzZWxlY3QgbmFtZT1cImNhcnNcIiBpZD1cImNhcnNcIiBvbkNoYW5nZT17X29uQ2hhbmdlfSA+XG4gICAgICAgIHsgb3BlcmF0aW9uVHlwZXMubGVuZ3RoICYmIFxuICAgICAgICBvcGVyYXRpb25UeXBlcy5tYXAoKG9wZXJhdGlvblR5cGUpID0+ICg8b3B0aW9uIGtleT17b3BlcmF0aW9uVHlwZS5pZH0gdmFsdWU9e29wZXJhdGlvblR5cGU/LmlkfT57b3BlcmF0aW9uVHlwZT8udHlwZX08L29wdGlvbj4pKX1cbiAgICAgICAgXG4gICAgICA8L3NlbGVjdD5cbiAgICA8L2Rpdj5cbiAgKSBcbn1cblxuZXhwb3J0IGRlZmF1bHQgT3BlcmF0aW9uVHlwZURyb3BEb3duXG4iXSwibmFtZXMiOlsidXNlRWZmZWN0IiwidXNlU3RhdGUiLCJheGlvcyIsIk9wZXJhdGlvblR5cGVEcm9wRG93biIsIm9uQ2hhbmdlIiwib3BlcmF0aW9uVHlwZXMiLCJzZXRPcGVyYXRpb25UeXBlcyIsImZldGNoRGF0YSIsImRhdGEiLCJnZXQiLCJlcnJvciIsImNvbnNvbGUiLCJsb2ciLCJfb25DaGFuZ2UiLCJ0YXJnZXQiLCJ2YWx1ZSIsImRpdiIsImNsYXNzTmFtZSIsImxhYmVsIiwiYnIiLCJzZWxlY3QiLCJuYW1lIiwiaWQiLCJsZW5ndGgiLCJtYXAiLCJvcGVyYXRpb25UeXBlIiwib3B0aW9uIiwidHlwZSJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./component/operation-dropdown.tsx\n");
-
-/***/ }),
-
-/***/ "./pages/operations/index.tsx":
-/*!************************************!*\
-  !*** ./pages/operations/index.tsx ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ \"next/head\");\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _component_balance__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../component/balance */ \"./component/balance.tsx\");\n/* harmony import */ var _component_calculator_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../component/calculator-form */ \"./component/calculator-form.tsx\");\n\n\n\n\nconst Records = ()=>{\n    return(/*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"flex\",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_head__WEBPACK_IMPORTED_MODULE_1___default()), {\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"title\", {\n                        children: \"Arithmetic Operation App - Operation\"\n                    }, void 0, false, {\n                        fileName: \"/app/pages/operations/index.tsx\",\n                        lineNumber: 10,\n                        columnNumber: 17\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        name: \"viewport\",\n                        content: \"initial-scale=1.0, width=device-width\"\n                    }, void 0, false, {\n                        fileName: \"/app/pages/operations/index.tsx\",\n                        lineNumber: 11,\n                        columnNumber: 17\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/app/pages/operations/index.tsx\",\n                lineNumber: 9,\n                columnNumber: 13\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"my-9 max-w-md\",\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_component_balance__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {}, void 0, false, {\n                        fileName: \"/app/pages/operations/index.tsx\",\n                        lineNumber: 14,\n                        columnNumber: 17\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_component_calculator_form__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {}, void 0, false, {\n                        fileName: \"/app/pages/operations/index.tsx\",\n                        lineNumber: 15,\n                        columnNumber: 17\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/app/pages/operations/index.tsx\",\n                lineNumber: 13,\n                columnNumber: 13\n            }, undefined)\n        ]\n    }, void 0, true, {\n        fileName: \"/app/pages/operations/index.tsx\",\n        lineNumber: 8,\n        columnNumber: 9\n    }, undefined));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Records);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9vcGVyYXRpb25zL2luZGV4LnRzeC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQUM0QjtBQUNpQjtBQUNlO0FBRTVELEtBQUssQ0FBQ0csT0FBTyxPQUFtQixDQUFDO0lBQzdCLE1BQU0sNkVBQ0RDLENBQUc7UUFBQ0MsU0FBUyxFQUFDLENBQU07O3dGQUNoQkwsa0RBQUk7O2dHQUNBTSxDQUFLO2tDQUFDLENBQW9DOzs7Ozs7Z0dBQzFDQyxDQUFJO3dCQUFDQyxJQUFJLEVBQUMsQ0FBVTt3QkFBQ0MsT0FBTyxFQUFDLENBQXVDOzs7Ozs7Ozs7Ozs7d0ZBRXhFTCxDQUFHO2dCQUFDQyxTQUFTLEVBQUMsQ0FBZTs7Z0dBQ3pCSiwwREFBTzs7Ozs7Z0dBQ1BDLGtFQUFjOzs7Ozs7Ozs7Ozs7Ozs7OztBQUkvQixDQUFDO0FBRUQsaUVBQWVDLE9BQU8iLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9hcml0aG1ldGljLXdlYi1jbGllbnQvLi9wYWdlcy9vcGVyYXRpb25zL2luZGV4LnRzeD83OGM5Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB0eXBlIHsgTmV4dFBhZ2UgfSBmcm9tICduZXh0J1xuaW1wb3J0IEhlYWQgZnJvbSAnbmV4dC9oZWFkJ1xuaW1wb3J0IEJhbGFuY2UgZnJvbSAnLi4vLi4vY29tcG9uZW50L2JhbGFuY2UnXG5pbXBvcnQgQ2FsY3VsYXRvckZvcm0gZnJvbSAnLi4vLi4vY29tcG9uZW50L2NhbGN1bGF0b3ItZm9ybSdcblxuY29uc3QgUmVjb3JkczogTmV4dFBhZ2UgPSAoKSA9PiB7XG4gICAgcmV0dXJuIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9J2ZsZXgnPlxuICAgICAgICAgICAgPEhlYWQ+XG4gICAgICAgICAgICAgICAgPHRpdGxlPkFyaXRobWV0aWMgT3BlcmF0aW9uIEFwcCAtIE9wZXJhdGlvbjwvdGl0bGU+XG4gICAgICAgICAgICAgICAgPG1ldGEgbmFtZT0ndmlld3BvcnQnIGNvbnRlbnQ9J2luaXRpYWwtc2NhbGU9MS4wLCB3aWR0aD1kZXZpY2Utd2lkdGgnIC8+XG4gICAgICAgICAgICA8L0hlYWQ+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0nbXktOSBtYXgtdy1tZCc+XG4gICAgICAgICAgICAgICAgPEJhbGFuY2UgLz5cbiAgICAgICAgICAgICAgICA8Q2FsY3VsYXRvckZvcm0vPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgIClcbn1cblxuZXhwb3J0IGRlZmF1bHQgUmVjb3Jkc1xuIl0sIm5hbWVzIjpbIkhlYWQiLCJCYWxhbmNlIiwiQ2FsY3VsYXRvckZvcm0iLCJSZWNvcmRzIiwiZGl2IiwiY2xhc3NOYW1lIiwidGl0bGUiLCJtZXRhIiwibmFtZSIsImNvbnRlbnQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./pages/operations/index.tsx\n");
-
-/***/ }),
-
-/***/ "axios":
-/*!************************!*\
-  !*** external "axios" ***!
-  \************************/
+/***/ 2167:
 /***/ ((module) => {
 
 module.exports = require("axios");
 
 /***/ }),
 
-/***/ "next/head":
-/*!****************************!*\
-  !*** external "next/head" ***!
-  \****************************/
+/***/ 968:
 /***/ ((module) => {
 
 module.exports = require("next/head");
 
 /***/ }),
 
-/***/ "react":
-/*!************************!*\
-  !*** external "react" ***!
-  \************************/
+/***/ 6689:
 /***/ ((module) => {
 
 module.exports = require("react");
 
 /***/ }),
 
-/***/ "react/jsx-dev-runtime":
-/*!****************************************!*\
-  !*** external "react/jsx-dev-runtime" ***!
-  \****************************************/
+/***/ 997:
 /***/ ((module) => {
 
-module.exports = require("react/jsx-dev-runtime");
+module.exports = require("react/jsx-runtime");
 
 /***/ })
 
@@ -100,7 +252,7 @@ module.exports = require("react/jsx-dev-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__("./pages/operations/index.tsx"));
+var __webpack_exports__ = (__webpack_exec__(5216));
 module.exports = __webpack_exports__;
 
 })();

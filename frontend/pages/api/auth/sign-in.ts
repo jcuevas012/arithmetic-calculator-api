@@ -22,6 +22,6 @@ import { ironOptions } from '../../../utils/config';
 
   await req.session.save();
   
-  res.status(201).send({ success: true});
+  res.status(response.status).send(response.data);
 }
 export default withIronSessionApiRoute(handler, ironOptions);

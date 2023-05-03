@@ -1,6 +1,6 @@
 import { SequelizeOperation } from "../../infrastructure/database/models/Operation";
 import { SequelizeRecord } from "../../infrastructure/database/models/Record";
-import { Operation, OperationType } from "../entities/Operation";
+import { Operation } from "../entities/Operation";
 import { Record } from "../entities/Record";
 import { IRecordRepository, RecordFilters, RecordResult } from "./IRecordRepository";
 
@@ -13,7 +13,6 @@ export class SequelizeRecordRepository implements IRecordRepository {
   async findAll(filter: RecordFilters): Promise<RecordResult> {
     try {
       
-      const operationId = filter?.where?.operationId
 
       const foundRecords = await SequelizeRecord.findAndCountAll({
         limit: filter.limit,
@@ -22,10 +21,12 @@ export class SequelizeRecordRepository implements IRecordRepository {
           model: SequelizeOperation, as: 'operation'
           
         },
-        ...(operationId && {
+      
+        ...(filter?.where && {
             where: {
-              operationId
-            } 
+              ...(filter.where?.operationId && { operationId: filter.where.operationId }),
+              ...(filter.where?.userId && { operationId: filter.where.userId })
+            }
          })
       });
 

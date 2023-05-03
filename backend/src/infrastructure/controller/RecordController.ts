@@ -8,12 +8,14 @@ export class RecordController {
 
   async findAll(req: Request, res: Response) {
     const { size, page, operationId } = req.query;
-  
+    const userId = req.auth.id
+
       const recordResults = await this.service.findAll(
         {
           size,
           page,
-          operationId
+          operationId, 
+          userId
         })
 
       return res.status(200).json(recordResults);

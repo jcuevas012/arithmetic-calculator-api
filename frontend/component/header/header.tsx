@@ -24,27 +24,24 @@ const Header: React.FC<CurrentUserProps> = ({ currentUser }) => {
                         {!currentUser ? (
                             <>
                                 <Link href={'/auth/signin'}>
-                                    <a className='whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900'>
-                                        {' '}
-                                        Sign in {'  '}
+                                    <a className='sign-link whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900'>
+                                        Sign in 
                                     </a>
                                 </Link>
                                 <Link href={'/auth/signup'}>
                                     <a
-                                        className='ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700'
+                                        className=' ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700'
                                     >
-                                        {' '}
-                                        Sign up{' '}
+                                        Sign up 
                                     </a>
                                 </Link>
                             </>
                         ) : (
                                 <Link href='/auth/signout'>
                                     <a
-                                        href='#'
                                        className='ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700'
                                     >
-                                        Sign out{' '}
+                                        {' '} Sign out
                                     </a>
                                 </Link>)
                         }

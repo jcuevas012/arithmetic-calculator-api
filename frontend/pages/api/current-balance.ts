@@ -18,9 +18,8 @@ import { ironOptions } from '../../utils/config';
     }
   })
   
-  const currentBalance = response.data 
 
-  res.status(200).send(currentBalance)
+  res.status(response.status).send(response.data)
 }
 
 

@@ -5,6 +5,7 @@ export interface RecordFilters {
     offset: number
     where?: {
       operationId?: string
+      userId: string
     }
 }
 

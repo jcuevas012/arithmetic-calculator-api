@@ -25,8 +25,17 @@ const LandingPage: NextPage<{ currentUser: any }> = ({ currentUser }) => {
                                     </a>
                                 </Link>
                             </div>
+                            <div className='ml-10 inline-flex rounded-md shadow'>
+                                 <Link href={'/records'}>
+                                    <a className="inline-flex items-center justify-center px-5 py-3 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                                        View Records
+                                    </a>
+                                </Link>
+                            </div>
                           
                         </div>}
+
+
                     </div>
                 </div>
             </main>

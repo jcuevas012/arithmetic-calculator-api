@@ -3,7 +3,7 @@ import 'express-async-errors'
 import { json } from 'body-parser'
 import express, { Application } from 'express'
 import logger from 'morgan'
-
+import cors from 'cors'
 import { userRoutes } from './routes/user';
 import { NotFoundError } from '../domain/entities/Error/not-found-error';
 import { errorHandler } from '../infrastructure/middlewares/error-handler';
@@ -14,7 +14,7 @@ const app: Application = express()
 
 app.use(logger('dev'))
 app.use(json())
-
+app.use(cors())
 app.get('/api/health', (_req, res) => {
     res.send({ success: true }).status(200)
 })

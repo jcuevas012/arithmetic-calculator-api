@@ -46,6 +46,4 @@ services:
           - ./frontend/node_modules:/app/node_modules
         env_file:
               - ./frontend/.env.local
-        environment: 
-          API_HOST: http://api:80
         command: npm run dev 

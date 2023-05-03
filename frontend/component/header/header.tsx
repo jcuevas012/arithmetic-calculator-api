@@ -11,9 +11,9 @@ const Header: React.FC<CurrentUserProps> = ({ currentUser }) => {
                     <div>
                         <Link href="/">
                             <Image
-                                width={20}
-                                height={20}
-                                className='h-8 w-auto sm:h-10'
+                                width={35}
+                                height={35}
+                                className='h-8 w-auto sm:h-10 inline-flex items-center justify-center'
                                 src='https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg'
                                 alt='Home'
                             />

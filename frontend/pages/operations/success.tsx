@@ -3,9 +3,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Balance from '../../component/balance'
 import { useRouter } from 'next/router'
+import { withAuth } from '../../utils/with-auth'
 
 
-const OperationSuccessPage: NextPage<{ currentUser: any }> = ({ currentUser }) => {
+const OperationSuccessPage: NextPage<{ currentUser?: any }> = ({ currentUser }) => {
     const router = useRouter()
 
     const {operationResponse} = router.query 
@@ -56,4 +57,4 @@ const OperationSuccessPage: NextPage<{ currentUser: any }> = ({ currentUser }) =
 }
 
 
-export default OperationSuccessPage
+export default withAuth(OperationSuccessPage)

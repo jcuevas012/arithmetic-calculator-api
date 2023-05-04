@@ -4,6 +4,9 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import OperationTypeDropDown from '../../component/operation-dropdown'
 import Table, { RecordResultSet } from '../../component/table'
+import { withAuth } from '../../utils/with-auth'
+
+
 
 interface RecordFilter {
     size: number
@@ -51,7 +54,7 @@ const Records: NextPage = () => {
     }
 
         const onSizeSelect = async (size: number) => {
-        if (page) {
+        if (size) {
             const { data } = await axios.get(`/api/records?size=${size}`)
             setResult(data)
         }
@@ -84,4 +87,6 @@ const Records: NextPage = () => {
     )
 }
 
-export default Records
+export default withAuth(Records)
+
+

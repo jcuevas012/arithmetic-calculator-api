@@ -5,11 +5,12 @@ import CalculatorForm, { OperationPayload } from '../../component/calculator-for
 import useRequest from '../../hooks/use-request';
 import { useRouter } from 'next/router';
 import Errors from '../../component/error';
+import { withAuth } from '../../utils/with-auth';
 
 
 
 
-const Records: NextPage = () => {
+const OperationPage: NextPage = () => {
     const router = useRouter()
 
     const [request, errors, isLoading] = useRequest({
@@ -51,4 +52,4 @@ const Records: NextPage = () => {
     )
 }
 
-export default Records
+export default withAuth(OperationPage)

@@ -2,11 +2,8 @@ import '../styles/globals.css'
 import type { AppContext, AppProps } from 'next/app'
 import Header from '../component/header/header'
 import { getSessionInfo } from '../utils/session-middleware'
-import { useRouter } from 'next/router'
 
 function AppComponent({ Component, pageProps, currentUser }: AppProps | any) {
-        
-
     return (
             <div className="container mx-auto pt-2">
                 <Header currentUser={currentUser} />

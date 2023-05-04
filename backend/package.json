@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsnd src/application/start.ts",
-    "test": "npm run db:create:test && jest --watchAll --cache",
-    "db:create:test": "cross-env NODE_ENV=test npx sequelize-cli db:create",
+    "test": "jest  --cache",
     "build": "tsc",
     "start": "node build/application/start.js",
     "prestart": "npm run build",

@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "b5b3b673-bd82-4b6a-b066-84dd4460111a",
+		"name": "calculator-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sign-up user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"jcq012@gmail.com\",\n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "load-balancer-for-arithmetic-api-918148225.us-east-1.elb.amazonaws.com/api/users/sign-up",
+					"host": [
+						"load-balancer-for-arithmetic-api-918148225",
+						"us-east-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "health check",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxOGIxMjM0LTMzZTUtNDEyZC1hMWU4LTQ5NjJlMzZlYWYzMyIsImVtYWlsIjoiY2FuZGlkYXRlQGdtYWlsLmNvbSIsImlhdCI6MTY4MjYxMDUyNH0.bHDn41VOC_fgqmunfIDBmyjcmQvqNT4hqNmTc6__Niw",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/api/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "operations list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFjZTA5OTU2LTM5NzgtNDY5Ni1iZTQ1LTIwMWQ0NjllYTMyYiIsImVtYWlsIjoiamNxMDEyQGdtYWlsLmNvbSIsImlhdCI6MTY4Mjk3MTI0NH0.6kgTUNG4I3rmLInwRY9JJAHhsCNiuVnROff8b81mebM",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/api/operations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"operations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "operation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFjZTA5OTU2LTM5NzgtNDY5Ni1iZTQ1LTIwMWQ0NjllYTMyYiIsImVtYWlsIjoiamNxMDEyQGdtYWlsLmNvbSIsImlhdCI6MTY4Mjk3MTI0NH0.6kgTUNG4I3rmLInwRY9JJAHhsCNiuVnROff8b81mebM",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"firstValue\": 10,\n        \"secondValue\": 10,\n        \"operationId\": \"143945e0-05b4-4f7d-9855-10e9c02a58e5\"\n   \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/operations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"operations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "current-user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE0YTEyNTAzLWExOWMtNDJjYi05ZWUwLTgxYjU2YjRlMGUyNiIsImVtYWlsIjoiamNxMDEyQGdtYWlsLmNvbSIsImlhdCI6MTY4MjcwMjQ2MCwiZXhwIjoxNjgyNzA0MjYwfQ.Y1Coo21jF7pREGrITqbp3mtDhIHf-DGeXmgd9mIUyH0",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/api/users/current-user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"users",
+						"current-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sing-out user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/api/users/sign-out",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"users",
+						"sign-out"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "operations list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQwZDVjOWRiLTY5YTctNDI3OS1iZGQ1LWViNTc1M2QwMzAwNCIsImVtYWlsIjoicTJjZGQwMTJAZ21haWwuY29tIiwiaWF0IjoxNjgyOTYzMzIxfQ.jcY4VJ0YV4z521_5zIsiRFNaqtJDQQHsDqc9JtXJdLY",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/operations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"operations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign-in user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"jcq012@gmail.com\",\n    \"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/users/sign-in",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"users",
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "records",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3OTcwYmJjLTU3NDAtNDY2YS1iYTUwLTM1NDA3YTczODdmNyIsImVtYWlsIjoiamNxMDEyQGdtYWlsLmNvbSIsImlhdCI6MTY4MzE2NTgwMH0.AmM7oGM0GJkHsKcg2mUcf-O91Rzo6pLzbwWBgYV8cNU",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/api/records?page=3&size=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"records"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "3"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "current-balance",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE0YTEyNTAzLWExOWMtNDJjYi05ZWUwLTgxYjU2YjRlMGUyNiIsImVtYWlsIjoiamNxMDEyQGdtYWlsLmNvbSIsImlhdCI6MTY4MjcwMjQ2MCwiZXhwIjoxNjgyNzA0MjYwfQ.Y1Coo21jF7pREGrITqbp3mtDhIHf-DGeXmgd9mIUyH0",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/api/users/current-balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"users",
+						"current-balance"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

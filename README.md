@@ -1,35 +1,39 @@
 # arithmetic-calculator-api
+
+This is a small project which looking to implement some of the best practices that should be taken into consideration when developing REST API such as:
+
+Note: Some points are just recommendations for scaling and were not implemented here because of the time available. those are going to be marked with `*`
+# Services Architecture 
+
+![ECS deployment final](https://user-images.githubusercontent.com/13880481/236306566-79f6dd9e-fe0a-453f-a3b1-dbc14be4f3c7.png)
+
+
 # Pre-install
 
 This project is running using  `docker` and `docker-compose` locally. We need some environment variables which will be place in `.env` for `backend` folder and `.env.local` for frontend, you can find those in each folder
-
+# How to run
 ### Build Image
 `docker-compose build`
 
 ### Run Containers frontend, backend, db
 `docker-compose up`
 
+### Setup database 
+After docker services are running `cd ./backend && npm run db:reset` this will create database and run all migrations and seeds
+### Runing Migration
+`npm run db:migrate`
 
-This is a small project which looking to implement some of the best practices that should be taken into consideration when developing REST API such as:
+### Runing Migration
+`npm run db:seeds`
 
-Note: Some points are just recommendations for scaling and were not implemented here because of the time available. those are going to be marked with `*`
-
-# Services Architecture 
-
-![ECS deployment final](https://user-images.githubusercontent.com/13880481/236306566-79f6dd9e-fe0a-453f-a3b1-dbc14be4f3c7.png)
-
-# How to run
-
-`npm intall`
-
-In order to run it locally in development mode
-`npm run dev`
-
-
-Runing Test
+### Runing Test
 `npm run test`
 
-- Pick `Properties Postman Collection.postman_collection` and import it in Postman
+### Postman Test
+- Pick `calculator-api.postman_collection.json` and import it in Postman
+
+
+
 
 # Error Handler.
 

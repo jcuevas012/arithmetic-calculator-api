@@ -1,1 +1,0 @@
-{"c":["webpack"],"r":["pages/records"],"m":["./component/not-authorized.tsx","./component/operation-dropdown.tsx","./component/table/index.tsx","./component/table/pagination.tsx","./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Frecords&absolutePagePath=%2Fapp%2Fpages%2Frecords%2Findex.tsx!","./pages/records/index.tsx","./utils/with-auth.tsx"]}

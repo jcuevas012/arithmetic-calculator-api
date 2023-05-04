@@ -23,6 +23,7 @@ import { ironOptions } from '../../../utils/config';
   
   res.status(response.status).send(response.data)
   } catch (e: unknown) {
+    // NOTE: adding proxy maybe a better solution to forward api error code and payload
     let err = e as AxiosError
     res.status(err?.response?.status || 400).send(err.response?.data || {})
   }

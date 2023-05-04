@@ -50,6 +50,7 @@ async function handler(req, res) {
         res.status(response.status).send(response.data);
     } catch (e) {
         var ref1, ref2;
+        // NOTE: adding proxy maybe a better solution to forward api error code and payload
         let err = e;
         res.status((err === null || err === void 0 ? void 0 : (ref1 = err.response) === null || ref1 === void 0 ? void 0 : ref1.status) || 400).send(((ref2 = err.response) === null || ref2 === void 0 ? void 0 : ref2.data) || {});
     }

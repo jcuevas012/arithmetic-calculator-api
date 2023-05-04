@@ -22,6 +22,32 @@ export interface TableProps {
     onPageSelect: (page: number) => void
 }
 
+
+
+const PageDropDown: React.FC<{ totalPages: number, currentPage: number, onChange: (page: number) => void }> = ({ totalPages, currentPage, onChange }) => {
+
+    const pages = Array(totalPages).fill('page')
+
+
+  const _onChange = ({ target: { value } }: any) => {
+    onChange(value)
+  } 
+
+    return (
+        <div className="flex justify-end py-5">
+            <div>
+                <select name="page" id="page" onChange={_onChange} >
+                {pages.length &&
+                    pages.map((_page, i) => (<option key={i} value={i+1}>{i+1}</option>))}
+                </select>    
+            </div>
+            
+        </div>
+    )
+}
+
+
+
 const TableItem: React.FC<{ record: Record }> = ({ record }) => {
     return (
         <tr>
@@ -50,6 +76,7 @@ const Table: React.FC<TableProps> = ({ result: { records, totalItems, totalPages
 
     return (
         <div>
+            <PageDropDown totalPages={totalPages} currentPage={currentPage} onChange={() => console.log('')} />
             <div className="my-5 overflow-x-auto rounded-lg border border-gray-200">
                 <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
                     <thead className="ltr:text-left rtl:text-right">
@@ -82,9 +109,11 @@ const Table: React.FC<TableProps> = ({ result: { records, totalItems, totalPages
                             </tr>
                         }
                     </tbody>
+
                 </table>
             </div>
             <Pagination totalItems={totalItems} totalPages={totalPages} currentPage={currentPage} onSelect={onPageSelect} />
+            
         </div>
 
     )

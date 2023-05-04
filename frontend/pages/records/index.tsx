@@ -50,7 +50,10 @@ const Records: NextPage = () => {
                 <meta name='viewport' content='initial-scale=1.0, width=device-width' />
             </Head>
             <main>
-                <OperationTypeDropDown onChange={onOperationTypeChange} />
+                <div className="py-6">
+                    <OperationTypeDropDown onChange={onOperationTypeChange} />
+                </div>
+                
                 <Table
                     result={result}
                     onPageSelect={onPageSelect}

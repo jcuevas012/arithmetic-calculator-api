@@ -4,13 +4,13 @@ import { ReactElement, useState } from 'react'
 interface UseRequestProps {
     url: string
     method: 'post' | 'put' | 'delete'
-    body: any
+    body?: any
     onSuccess: Function
 }
 
 const useRequest = (options: UseRequestProps) => {
     const [errors, setErrors] = useState<ReactElement | null>()
-    const [isLoading, setLoading] = useState(false)
+    const [isLoading, setLoading] = useState<boolean>(false)
 
     const request = async (params = {}) => {
         try {
@@ -30,7 +30,7 @@ const useRequest = (options: UseRequestProps) => {
         }
     }
 
-    return [request, errors, isLoading]
+    return [request, errors, isLoading ]
 }
 
 export default useRequest

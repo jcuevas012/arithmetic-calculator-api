@@ -26,7 +26,8 @@ export class RecordService {
           limit, 
           offset,
           where: {
-            operationId: filter.operationId
+            operationId: filter.operationId,
+            userId: filter.userId
           }
         });
 

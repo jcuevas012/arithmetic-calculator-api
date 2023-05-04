@@ -15,7 +15,7 @@ export class SequelizeOperationRepository implements IOperationRepository {
         const createdRecord = await SequelizeRecord.create({
           userId: record.getUserId(),
           operationId: operation.getId(),
-          operationResponse: record.getOperationResponseAsString(),
+          operationResponse: record.getOperationResponse(),
           userBalance: record.getUserBalance(),
           amount: record.getAmount()
         });
@@ -51,7 +51,7 @@ export class SequelizeOperationRepository implements IOperationRepository {
     try {
         const operationFounds = await SequelizeOperation.findAll()
 
-        const operationList = operationFounds.map(operation => new Operation(operation.id, operation.type, operation.cost))
+        const operationList = operationFounds.map(operation => new Operation(operation.id, operation.type, operation.cost, operation.description))
 
         return operationList
     } catch (err) {
@@ -64,7 +64,7 @@ export class SequelizeOperationRepository implements IOperationRepository {
       try {
           const found = await SequelizeOperation.findByPk(id)
 
-          const foundOperation = new Operation(found.id, found.type, found.cost)
+          const foundOperation = new Operation(found.id, found.type, found.cost, found.description)
 
           return foundOperation
       } catch (err) {

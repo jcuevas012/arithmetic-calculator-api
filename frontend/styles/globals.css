@@ -4,4 +4,9 @@
 
 .nav-container {
     justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.sign-link {
+    margin-right: 15px;
 }

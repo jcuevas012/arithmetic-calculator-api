@@ -20,7 +20,7 @@ import { ironOptions } from '../../../utils/config';
   
   const currentUser = response.data 
 
-  res.status(200).send(currentUser)
+  res.status(response.status).send(currentUser)
 }
 
 

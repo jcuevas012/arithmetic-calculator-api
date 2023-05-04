@@ -12,15 +12,21 @@ export class Operation {
   protected id: string
   protected type: OperationType
   protected cost: number
+  protected description: string
 
-  constructor(id: string, type: OperationType, cost: number) {
+  constructor(id: string, type: OperationType, cost: number, description: string) {
     this.id = id;
     this.type = type;
     this.cost = cost;
+    this.description = description;
   }
 
   getId() {
     return this.id
+  }
+
+  getDescription() {
+    return this.description
   }
 
   getType() {

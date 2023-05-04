@@ -33,6 +33,7 @@ export class OperationService {
 
         const userBalance = userInfo.getBalance() - operation.getCost()
 
+        
         newRecord.setAmount(operation.getCost())
         newRecord.setUserBalance(userBalance)
         newRecord.setOperationResponse(response)
@@ -63,11 +64,13 @@ export class OperationService {
 
 
 
-  executeOperation(operation: Operation, values: OperationPayload ): number | string {
+  executeOperation(operation: Operation, values: OperationPayload ):  string {
     const { firstValue, secondValue } = values
     const type = OperationType[operation.getType()] as unknown as OperationType
 
-    switch (type) {
+
+    const getResult = () => {
+      switch (type) {
         case OperationType.addition:
           return firstValue + secondValue
         case OperationType.subtraction:
@@ -83,6 +86,11 @@ export class OperationService {
         default:
           break;
       }
+    }
+
+    const result = getResult()
+
+    return result.toString()
   }
 
 }

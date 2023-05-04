@@ -2,9 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/records": "pages/records.js",
   "/api/auth/me": "pages/api/auth/me.js",
-  "/api/records": "pages/api/records.js",
-  "/api/current-balance": "pages/api/current-balance.js",
-  "/api/operations/types": "pages/api/operations/types.js"
+  "/": "pages/index.js",
+  "/api/auth/sign-up": "pages/api/auth/sign-up.js",
+  "/api/auth/sign-out": "pages/api/auth/sign-out.js"
 }

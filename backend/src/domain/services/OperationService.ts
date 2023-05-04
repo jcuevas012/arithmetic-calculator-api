@@ -3,6 +3,7 @@ import { Operation, OperationType } from "../entities/Operation";
 import { Record } from "../entities/Record";
 import { IOperationRepository } from "../repository/IOperationRepository";
 import { IUserRepository } from "../repository/IUserRepository";
+import { IRandomStrService } from "./RandomStrService";
 
 export interface OperationPayload {
   firstValue: number;
@@ -15,6 +16,7 @@ export class OperationService {
   constructor(
     private operationRepository: IOperationRepository,
     private userRepository: IUserRepository,
+    private randomStrService?: IRandomStrService
   ){}
 
   async addition(userId: string, operationPayload: OperationPayload): Promise<Record>{
@@ -82,7 +84,7 @@ export class OperationService {
         case OperationType.square_root:
           return Math.sqrt(firstValue)
         case OperationType.random_string:
-          return 'xsssfs'      
+          return this.randomStrService.getValue()      
         default:
           break;
       }

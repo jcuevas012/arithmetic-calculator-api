@@ -20,13 +20,14 @@ interface Record {
 export interface TableProps {
     result: RecordResultSet,
     onPageSelect: (page: number) => void
+    onSizeSelect: (size: number) => void
 }
 
 
 
 const PageDropDown: React.FC<{ totalPages: number, currentPage: number, onChange: (page: number) => void }> = ({ totalPages, currentPage, onChange }) => {
 
-    const pages = Array(totalPages).fill('page')
+    const pages = Array(10).fill('page')
 
 
   const _onChange = ({ target: { value } }: any) => {
@@ -36,9 +37,13 @@ const PageDropDown: React.FC<{ totalPages: number, currentPage: number, onChange
     return (
         <div className="flex justify-end py-5">
             <div>
+                <p>Quantity</p>
                 <select name="page" id="page" onChange={_onChange} >
                 {pages.length &&
-                    pages.map((_page, i) => (<option key={i} value={i+1}>{i+1}</option>))}
+                    pages.map((_page, i) => {
+                        const size = (i+1) * 10
+                        return (<option key={size} value={size}>{size}</option>)
+                    })}
                 </select>    
             </div>
             
@@ -71,12 +76,12 @@ const TableItem: React.FC<{ record: Record }> = ({ record }) => {
 }
 
 
-const Table: React.FC<TableProps> = ({ result: { records, totalItems, totalPages, currentPage }, onPageSelect }) => {
+const Table: React.FC<TableProps> = ({ result: { records, totalItems, totalPages, currentPage }, onPageSelect, onSizeSelect }) => {
 
 
     return (
         <div>
-            <PageDropDown totalPages={totalPages} currentPage={currentPage} onChange={() => console.log('')} />
+            <PageDropDown totalPages={totalPages} currentPage={currentPage} onChange={onSizeSelect} />
             <div className="my-5 overflow-x-auto rounded-lg border border-gray-200">
                 <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
                     <thead className="ltr:text-left rtl:text-right">
@@ -105,7 +110,7 @@ const Table: React.FC<TableProps> = ({ result: { records, totalItems, totalPages
                             records.map((record) => <TableItem key={record.id} record={record} />)
                             :
                             <tr>
-                                NO RECORDS
+                                <p>NO RECORDS</p>
                             </tr>
                         }
                     </tbody>

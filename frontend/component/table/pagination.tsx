@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 
 interface PaginationType {
@@ -19,8 +19,7 @@ const Item: React.FC<PagItemType> = ({ value, onClick }) => {
         <li>
             <a
                 onClick={() => onClick(value)}
-                className="block h-8 w-8 rounded border border-gray-100 bg-white text-center leading-8 text-gray-900"
-            >
+                className='ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow text-base font-medium text-black bg-white hover:bg-indigo-700'>
                 {value}
             </a>
         </li>
@@ -29,11 +28,15 @@ const Item: React.FC<PagItemType> = ({ value, onClick }) => {
 
 const ActiveItem: React.FC<PagItemType> = ({ value, onClick }) => {
     return (
-        <li
-            onClick={() => onClick(value)}
-            className="block h-8 w-8 rounded border-blue-600 bg-blue-600 text-center leading-8 text-white"
-        >
-            {value}
+        <li>
+            <a
+                onClick={() => onClick(value)}
+                className='ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600  hover:bg-indigo-700'
+            >
+                {value}
+            </a>
+
+
         </li>
     )
 }
@@ -41,57 +44,51 @@ const ActiveItem: React.FC<PagItemType> = ({ value, onClick }) => {
 
 const Pagination: React.FC<PaginationType> = ({ currentPage, totalItems, totalPages, onSelect }) => {
 
-    console.log({ totalItems, totalPages, currentPage })
+    const [_currentPage, setCurrentPage] = useState(currentPage)
+
+    useEffect(() => {
+        setCurrentPage(currentPage)
+    }, [currentPage])
+
     const pages = Array(totalPages).fill('page')
-    console.log(pages)
+
+    const onArrowClick = (type: string) => {
+
+        if (type === 'increase' && _currentPage < totalPages) {
+            const value = _currentPage + 1
+            setCurrentPage(value)
+        } else {
+            const value = _currentPage - 1
+            setCurrentPage(value && value)
+        }
+
+        onSelect(_currentPage)
+    }
 
     return (
-        <ol className="flex justify-center gap-1 text-xs font-medium">
+        <ol className="flex justify-center gap-1 text-xs font-medium py-3">
             <li>
                 <a
-                    onClick={() => alert('implementation pending Pagination component')}
-                    className="inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
+                    onClick={() => onArrowClick('decrease')}
+                    className='ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow text-base font-medium text-black bg-white hover:bg-indigo-700'
                 >
                     <span className="sr-only">Prev Page</span>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-3 w-3"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                    >
-                        <path
-                            fillRule="evenodd"
-                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
+                    <p id="decrease"> {'<'}</p>
                 </a>
             </li>
 
             {pages.map((_v, page) => {
                 const value = page + 1
-                console.log('value')
-                return value === currentPage ? <ActiveItem onClick={onSelect} key={page} value={value} /> : <Item key={page} onClick={onSelect} value={value} />
+                return value === _currentPage ? <ActiveItem onClick={onSelect} key={page} value={value} /> : <Item key={page} onClick={onSelect} value={value} />
             })}
 
             <li>
                 <a
-                    onClick={() => alert('implementation pending Pagination component')}
-                    className="inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
+                    onClick={() => onArrowClick('increase')}
+                    className='ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow text-base font-medium text-black bg-white hover:bg-indigo-700'
                 >
                     <span className="sr-only">Next Page</span>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-3 w-3"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                    >
-                        <path
-                            fillRule="evenodd"
-                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
+                    <p id="increase" >{'>'}</p>
                 </a>
             </li>
         </ol>

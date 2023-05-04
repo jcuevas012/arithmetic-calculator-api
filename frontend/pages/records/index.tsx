@@ -5,7 +5,11 @@ import { useEffect, useState } from 'react'
 import OperationTypeDropDown from '../../component/operation-dropdown'
 import Table, { RecordResultSet } from '../../component/table'
 
-
+interface RecordFilter {
+    size: number
+    page: number
+    operationId: string
+}
 
 const Records: NextPage = () => {
 
@@ -15,6 +19,14 @@ const Records: NextPage = () => {
         totalPages: 0,
         records: []
     })
+
+    const [filter, setFilter] = useState<RecordFilter>({
+        size: 10,
+        page: 1,
+        operationId: ''
+    })
+
+
 
     const fetchData = async () => {
         try {
@@ -38,6 +50,13 @@ const Records: NextPage = () => {
         }
     }
 
+        const onSizeSelect = async (size: number) => {
+        if (page) {
+            const { data } = await axios.get(`/api/records?size=${size}`)
+            setResult(data)
+        }
+    }
+
     useEffect(() => {
         fetchData()
     }, [])
@@ -57,6 +76,7 @@ const Records: NextPage = () => {
                 <Table
                     result={result}
                     onPageSelect={onPageSelect}
+                    onSizeSelect={onSizeSelect}
                 />
 
             </main>

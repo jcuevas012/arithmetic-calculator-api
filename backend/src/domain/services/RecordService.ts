@@ -23,15 +23,15 @@ export class RecordService {
         const {limit, offset} = this.getPaginationParams(filter.page, filter.size)
 
         const data = await this.repository.findAll({
-          limit, 
           offset,
+          limit, 
           where: {
             operationId: filter.operationId,
             userId: filter.userId
           }
         });
 
-        return this.getPaginationData(data, offset, limit)
+        return this.getPaginationData(data, limit, filter.page)
       } catch (error) {
           console.log('Log:', error)
           console.log('Log:', error.message)
@@ -42,18 +42,21 @@ export class RecordService {
 
 
    getPaginationParams(page: string, size: string): { limit: number, offset: number } {
+    const currentPage = page ? +page : 1
+
     const limit = size ? +size : 10;
-    const offset = page ? +page * limit : 0;
+    
+    const offset = currentPage > 1 ? (currentPage * limit) - limit : 0;
   
     return { limit, offset };
   }
 
 
-   getPaginationData(data: any, offset: number, limit: number): RecordPaginationResults {
+   getPaginationData(data: any, limit: number, page: string): RecordPaginationResults {
     const totalItems: number = data.count
     const records: Record[] = data.records
     
-    const currentPage = offset ? offset : 0;
+    const currentPage =  page ? +page : 1;
     const totalPages = Math.ceil(totalItems / limit);
   
     return { totalItems, records, totalPages, currentPage };

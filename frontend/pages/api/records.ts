@@ -13,6 +13,7 @@ import { ironOptions } from '../../utils/config';
   const host = process.env.API_HOST
   
   const response = await axios.get(`${host}/api/records`, { 
+    params: req.query,
     headers: {
       'Authorization': `Bearer ${token}`
     }

@@ -15,8 +15,8 @@ export class SequelizeRecordRepository implements IRecordRepository {
       
       const queryParams = filter.where
       const foundRecords = await SequelizeRecord.findAndCountAll({
-        limit: filter.limit,
         offset: filter.offset,
+        limit: filter.limit,
         include: {
           model: SequelizeOperation, as: 'operation'
           

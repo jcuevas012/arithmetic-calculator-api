@@ -51,7 +51,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onChange, errors, loadi
                 <br/>
                 <OperationTypeDropDown onChange={onChangeOperationType}/>
                 <br/>
-                <div  className="mt-10 inline-block" >
+                <div  className="mt-10 inline-block justify-center align-middle content-center items-center" >
                     <button 
                      onClick={_onChange}
                      disabled={!isValidPayload()}

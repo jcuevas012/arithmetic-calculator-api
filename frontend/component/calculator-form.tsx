@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 import OperationTypeDropDown from "./operation-dropdown"
 
 export interface OperationPayload {
@@ -8,12 +8,12 @@ export interface OperationPayload {
 }
 
 interface CalculatorFormProps {
-    errors: string[];
-    onChange: (data: OperationPayload) => void
-    loading?: boolean
+    errors?: any;
+    loading: boolean;
+    onChange: (data: OperationPayload) => void;
 }
 
-const CalculatorForm: React.FC<CalculatorFormProps> = ({ onChange, errors, loading }) => {
+const CalculatorForm: React.FC<CalculatorFormProps> = ({ onChange, errors, loading }: CalculatorFormProps) => {
     const [firstValue, setFirstValue]  = useState(0)
     const [secondValue, setSecondValue]  = useState(0)
     const [operationId, setOperationId]  = useState('')

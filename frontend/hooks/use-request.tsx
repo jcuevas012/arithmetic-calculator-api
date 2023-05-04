@@ -10,7 +10,7 @@ interface UseRequestProps {
 
 const useRequest = (options: UseRequestProps) => {
     const [errors, setErrors] = useState<ReactElement | null>()
-    const [isLoading, setLoading] = useState(false)
+    const [isLoading, setLoading] = useState<boolean>(false)
 
     const request = async (params = {}) => {
         try {

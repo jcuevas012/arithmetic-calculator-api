@@ -34,7 +34,7 @@ const Records: NextPage = () => {
                 </div>
                 <CalculatorForm 
                     onChange={onChange} 
-                    loading={isLoading}
+                    loading={isLoading as boolean}
                     errors={errors}
                 />
             </div>

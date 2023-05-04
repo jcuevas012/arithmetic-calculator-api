@@ -1,8 +1,14 @@
 # arithmetic-calculator-api
 # Pre-install
 
-This project is running in the latest LTS Node version:
-Node 18.15.0
+This project is running using  `docker` and `docker-compose` locally. We need some environment variables which will be place in `.env` for `backend` folder and `.env.local` for frontend, you can find those in each folder
+
+### Build Image
+`docker-compose build`
+
+### Run Containers frontend, backend, db
+`docker-compose up`
+
 
 This is a small project which looking to implement some of the best practices that should be taken into consideration when developing REST API such as:
 

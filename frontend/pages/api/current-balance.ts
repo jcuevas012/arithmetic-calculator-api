@@ -19,7 +19,7 @@ import { ironOptions } from '../../utils/config';
   })
   
 
-  res.status(response.status).send(response.data)
+  res.status(200).send(response.data)
 }
 
 

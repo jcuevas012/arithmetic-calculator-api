@@ -13,19 +13,18 @@ export class SequelizeRecordRepository implements IRecordRepository {
   async findAll(filter: RecordFilters): Promise<RecordResult> {
     try {
       
-
+      const queryParams = filter.where
       const foundRecords = await SequelizeRecord.findAndCountAll({
-        limit: filter.limit,
         offset: filter.offset,
+        limit: filter.limit,
         include: {
           model: SequelizeOperation, as: 'operation'
           
         },
-      
-        ...(filter?.where && {
+        ...(queryParams && {
             where: {
-              ...(filter.where?.operationId && { operationId: filter.where.operationId }),
-              ...(filter.where?.userId && { operationId: filter.where.userId })
+              ...(queryParams?.operationId && { operationId: queryParams.operationId }),
+              ...(queryParams?.userId && { userId: queryParams.userId })
             }
          })
       });

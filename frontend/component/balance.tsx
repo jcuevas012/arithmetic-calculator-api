@@ -22,7 +22,7 @@ const Balance: React.FC = () => {
     <article className="py-2 px-2 rounded-lg border border-gray-100 bg-white ">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-500">Balance</p>
+              <p className="text-sm text-gray-500">Current Balance</p>
 
               <p className="text-2xl font-medium text-gray-900">$ {balance}</p>
             </div>

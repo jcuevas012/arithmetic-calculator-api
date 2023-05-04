@@ -14,7 +14,7 @@ const Records: NextPage = () => {
     const [request, errors, isLoading] = useRequest({
         method: 'post',
         url: '/api/operations',
-        onSuccess: () => router.push('/'),
+        onSuccess: () => router.push('/operations/success'),
     })
 
     const onChange = async (data: OperationPayload) => {
@@ -28,7 +28,7 @@ const Records: NextPage = () => {
                 <title>Arithmetic Operation App - Operation</title>
                 <meta name='viewport' content='initial-scale=1.0, width=device-width' />
             </Head>
-            <div className='py-5 max-w-md'>
+            <div className='max-w-7xl mx-auto h-screen py-12 px-4 sm:px-6 '>
                 <div className='py-5 '>
                     <Balance />
                 </div>

@@ -92,7 +92,7 @@ export class OperationService {
 
     const result = getResult()
 
-    return result.toString()
+    return result && result.toString()
   }
 
 }

@@ -14,7 +14,7 @@ export class Operation {
   protected cost: number
   protected description: string
 
-  constructor(id: string, type: OperationType, cost: number, description: string) {
+  constructor(id?: string, type?: OperationType, cost?: number, description?: string) {
     this.id = id;
     this.type = type;
     this.cost = cost;

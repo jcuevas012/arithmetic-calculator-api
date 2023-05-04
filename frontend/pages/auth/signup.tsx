@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import useRequest from '../../hooks/use-request'
+import Errors from '../../component/error'
 
 const SignUpPage: NextPage = () => {
     const [email, setEmail] = useState('')
@@ -70,7 +71,7 @@ const SignUpPage: NextPage = () => {
                             </div>
                         </div>
 
-                        <div className='text-sm text-red-800'>{errors}</div>
+                        <Errors errors={errors as Array<string>}/>
 
                         <div>
                             <button

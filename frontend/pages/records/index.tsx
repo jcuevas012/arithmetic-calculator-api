@@ -4,8 +4,15 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import OperationTypeDropDown from '../../component/operation-dropdown'
 import Table, { RecordResultSet } from '../../component/table'
+import { withAuth } from '../../utils/with-auth'
 
 
+
+interface RecordFilter {
+    size: number
+    page: number
+    operationId: string
+}
 
 const Records: NextPage = () => {
 
@@ -15,6 +22,14 @@ const Records: NextPage = () => {
         totalPages: 0,
         records: []
     })
+
+    const [filter, setFilter] = useState<RecordFilter>({
+        size: 10,
+        page: 1,
+        operationId: ''
+    })
+
+
 
     const fetchData = async () => {
         try {
@@ -38,6 +53,13 @@ const Records: NextPage = () => {
         }
     }
 
+        const onSizeSelect = async (size: number) => {
+        if (size) {
+            const { data } = await axios.get(`/api/records?size=${size}`)
+            setResult(data)
+        }
+    }
+
     useEffect(() => {
         fetchData()
     }, [])
@@ -50,15 +72,21 @@ const Records: NextPage = () => {
                 <meta name='viewport' content='initial-scale=1.0, width=device-width' />
             </Head>
             <main>
-                <OperationTypeDropDown onChange={onOperationTypeChange}/>
-                <Table 
+                <div className="py-6">
+                    <OperationTypeDropDown onChange={onOperationTypeChange} />
+                </div>
+                
+                <Table
                     result={result}
                     onPageSelect={onPageSelect}
-                    />
-                
+                    onSizeSelect={onSizeSelect}
+                />
+
             </main>
         </div>
     )
 }
 
-export default Records
+export default withAuth(Records)
+
+

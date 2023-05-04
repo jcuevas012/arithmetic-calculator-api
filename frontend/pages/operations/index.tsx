@@ -4,17 +4,26 @@ import Balance from '../../component/balance'
 import CalculatorForm, { OperationPayload } from '../../component/calculator-form'
 import useRequest from '../../hooks/use-request';
 import { useRouter } from 'next/router';
+import Errors from '../../component/error';
+import { withAuth } from '../../utils/with-auth';
 
 
 
 
-const Records: NextPage = () => {
+const OperationPage: NextPage = () => {
     const router = useRouter()
 
     const [request, errors, isLoading] = useRequest({
         method: 'post',
         url: '/api/operations',
-        onSuccess: () => router.push('/operations/success'),
+        onSuccess: (data: any) =>{ 
+            router.push({
+                pathname: '/operations/success',
+                query: {
+                    operationResponse: data.operationResponse
+                }
+            })
+        },
     })
 
     const onChange = async (data: OperationPayload) => {
@@ -37,9 +46,10 @@ const Records: NextPage = () => {
                     loading={isLoading as boolean}
                     errors={errors}
                 />
+                <Errors errors={errors as Array<string>}/>
             </div>
         </div>
     )
 }
 
-export default Records
+export default withAuth(OperationPage)

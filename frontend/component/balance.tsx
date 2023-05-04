@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 
-const Balance: React.FC = () => {
+interface BalanceProps {
+  currentUser?: any
+}
+
+const Balance: React.FC<BalanceProps> = ({ currentUser }) => {
 
   const [balance, setBalance] = useState(0)
 
@@ -22,9 +26,9 @@ const Balance: React.FC = () => {
     <article className="py-2 px-2 rounded-lg border border-gray-100 bg-white ">
           <div className="flex items-center justify-between">
             <div>
+              {currentUser && <p className="text-sm text-gray-500 py-2" >{currentUser.email}</p>}
               <p className="text-sm text-gray-500">Current Balance</p>
-
-              <p className="text-2xl font-medium text-gray-900">$ {balance}</p>
+              <p className="text-2xl font-medium text-gray-900 bold">$ {balance.toLocaleString()}</p>
             </div>
 
             <span className="rounded-full bg-blue-100 p-3 text-blue-600">

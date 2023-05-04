@@ -36,6 +36,7 @@ export class SequelizeOperationRepository implements IOperationRepository {
         newRecord.setUserId(createdRecord.userId)
         newRecord.setUserBalance(createdRecord.userBalance)
         newRecord.setDate(createdRecord.createdAt)
+        newRecord.setOperationResponse(createdRecord.operationResponse)
 
       
         return newRecord;

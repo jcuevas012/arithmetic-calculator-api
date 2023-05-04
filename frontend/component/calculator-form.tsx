@@ -55,7 +55,9 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onChange, errors, loadi
                     <button 
                      onClick={_onChange}
                      disabled={!isValidPayload()}
-                     className={isValidPayload() ? 'inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700' : 'disabled inline-flex items-center justify-center px-5 py-3 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow'}
+                     className={isValidPayload() ? 
+                    'inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700' : 
+                     'no-cursor disabled:opacity-50 inline-flex items-center justify-center px-5 py-3 bg-gray hover:bg-gray-100 text-gray-800  py-2 px-4  rounded shadow'}
                      >
                         Process Operation
                     </button>

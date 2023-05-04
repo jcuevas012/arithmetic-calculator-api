@@ -2,9 +2,15 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import Balance from '../../component/balance'
+import { useRouter } from 'next/router'
+import { withAuth } from '../../utils/with-auth'
 
 
-const OperationSuccessPage: NextPage<{ currentUser: any }> = ({ currentUser }) => {
+const OperationSuccessPage: NextPage<{ currentUser?: any }> = ({ currentUser }) => {
+    const router = useRouter()
+
+    const {operationResponse} = router.query 
+
     return (
         <div className='min-h-full'>
             <Head>
@@ -19,29 +25,36 @@ const OperationSuccessPage: NextPage<{ currentUser: any }> = ({ currentUser }) =
                         </h2>
 
                         <div className="py-5">
-                            <Balance/>
+                            <Balance currentUser={currentUser} />
                         </div>
-                        
-                            <div className='inline-flex rounded-md shadow'>
-                                <Link href={'/operations'}>
-                                    <a className='inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700'>
-                                        Create Operation
-                                    </a>
-                                </Link>
-                            </div>
-                            <div className='ml-10 inline-flex rounded-md shadow'>
-                                 <Link href={'/'}>
-                                    <a className="inline-flex items-center justify-center px-5 py-3 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-                                        Go Home
-                                    </a>
-                                </Link>
-                            </div>
+
+                        <div className="py-5">
+                            <h4 className='text-3xl font-extrabold tracking-tight text-gray-900 sm:text-2xl'>
+                                <span className='block text-indigo-600'>Operation Result: </span>
+                                <span className='block'>{operationResponse?.toLocaleString()} </span>
+                            </h4>
+                        </div>
+
+                        <div className='inline-flex rounded-md shadow'>
+                            <Link href={'/operations'}>
+                                <a className='inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700'>
+                                    Create Operation
+                                </a>
+                            </Link>
+                        </div>
+                        <div className='ml-10 inline-flex rounded-md shadow'>
+                            <Link href={'/'}>
+                                <a className="inline-flex items-center justify-center px-5 py-3 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                                    Go Home
+                                </a>
+                            </Link>
+                        </div>
                     </div>
-                 </div>
+                </div>
             </main>
         </div>
     )
 }
 
 
-export default OperationSuccessPage
+export default withAuth(OperationSuccessPage)

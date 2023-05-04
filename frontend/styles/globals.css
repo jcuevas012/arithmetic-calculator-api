@@ -14,3 +14,7 @@
 .not-cursor {
   cursor: not-allowed;
 }
+
+.error-msg {
+  color: red;
+}

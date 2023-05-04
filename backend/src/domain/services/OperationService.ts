@@ -22,7 +22,7 @@ export class OperationService {
 
         const userInfo = await this.userRepository.findById(userId)
 
-        if (userInfo.getBalance() < operation.getCost()) {
+        if (operation.getCost() > userInfo.getBalance()) {
             throw new BadRequestError("Operation not allow, insufficient balance")
         }
         

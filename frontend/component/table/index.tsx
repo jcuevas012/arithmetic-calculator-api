@@ -69,7 +69,7 @@ const TableItem: React.FC<{ record: Record }> = ({ record }) => {
                 {record.operationResponse}
             </td>
             <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                {record.date}
+                {record.date ? new Date(record.date).toDateString() :'--'}
             </td>
         </tr>
     )

@@ -1,7 +1,7 @@
 
 import { withIronSessionApiRoute } from 'iron-session/next';
 import type { NextApiRequest, NextApiResponse } from 'next'
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { ironOptions } from '../../../utils/config';
 
 
@@ -11,8 +11,9 @@ import { ironOptions } from '../../../utils/config';
 ) {
   const token = req.session.user?.token;
   const host = process.env.API_HOST
-  
-  const response = await axios.post(`${host}/api/operations`, 
+  let response
+  try {
+     response = await axios.post(`${host}/api/operations`, 
     req.body,
   { 
     headers: {
@@ -21,6 +22,11 @@ import { ironOptions } from '../../../utils/config';
   })
   
   res.status(response.status).send(response.data)
+  } catch (e: unknown) {
+    let err = e as AxiosError
+    res.status(err?.response?.status || 400).send(err.response?.data || {})
+  }
+  
 }
 
 

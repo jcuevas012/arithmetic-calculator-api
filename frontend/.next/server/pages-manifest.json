@@ -1,20 +1,11 @@
 {
   "/_app": "pages/_app.js",
-  "/api/auth/me": "pages/api/auth/me.js",
-  "/api/auth/sign-in": "pages/api/auth/sign-in.js",
-  "/api/auth/sign-out": "pages/api/auth/sign-out.js",
-  "/api/auth/sign-up": "pages/api/auth/sign-up.js",
-  "/api/current-balance": "pages/api/current-balance.js",
-  "/api/operations": "pages/api/operations.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/records": "pages/records.js",
   "/api/operations/types": "pages/api/operations/types.js",
   "/api/records": "pages/api/records.js",
-  "/auth/signin": "pages/auth/signin.js",
-  "/auth/signout": "pages/auth/signout.js",
-  "/auth/signup": "pages/auth/signup.js",
-  "/": "pages/index.js",
-  "/operations": "pages/operations.js",
-  "/operations/success": "pages/operations/success.js",
-  "/records": "pages/records.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js"
+  "/api/auth/me": "pages/api/auth/me.js",
+  "/api/current-balance": "pages/api/current-balance.js",
+  "/api/operations": "pages/api/operations.js"
 }

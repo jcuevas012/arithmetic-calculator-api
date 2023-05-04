@@ -66,9 +66,6 @@ The frontend  App send `Bearer jwt-token on each request since using Next in ord
 > Create a stub database for testing in order to have a separate environment
 
 
-
-
-
 ## Error Handler.
 
 - For this case write out a simple error handler system base on classes `domain/entities/errors`, where and relaying on express `express-async-errors` so that I can throw errors direct from `controller`, `repositories` or `services` using async/await when is needed
@@ -106,4 +103,4 @@ I consider resiliency API an important topic since production API should be read
 
 # Documentation
 
-- As for how to use the API, I added a Postman collection file with the API's use cases so the user can get familiar with how to request and what the endpoints are expecting.
+- As for how to use the API, I added a Postman collection file with the API's use cases so the user can get familiar with how to request and what the endpoints are expecting.g

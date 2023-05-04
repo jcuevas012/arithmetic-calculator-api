@@ -39,8 +39,8 @@ export class SequelizeRecordRepository implements IRecordRepository {
         record.setOperationResponse(row.operationResponse)
         record.setUserBalance(row.userBalance)
         
-        const {id , cost, type} = row.operation.dataValues
-        record.setOperation(new Operation(id, type, cost))
+        const {id , cost, type, description} = row.operation.dataValues
+        record.setOperation(new Operation(id, type, cost, description))
         return record;
       })
 

@@ -5,7 +5,7 @@ import { OperationService } from "../OperationService"
 describe(' OperationService test cases', function () {
 
 
-    it('OperationService.executeOperation ', async () => {
+    it('OperationService.executeOperation return undefined', async () => {
         const operationService = new OperationService(null, null, null)
 
         const result = operationService.executeOperation(new Operation(), {
@@ -16,5 +16,19 @@ describe(' OperationService test cases', function () {
 
         expect(result).toBeUndefined()
     })
+
+
+
+    it('OperationService.executeOperation ', async () => {
+      const operationService = new OperationService(null, null, null)
+
+      const result = operationService.executeOperation(new Operation(), {
+        firstValue: 10,
+        secondValue: 20,
+        operationId: ''
+      })
+
+      expect(result).toBeUndefined()
+  })
 })
 

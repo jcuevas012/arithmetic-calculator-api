@@ -4,6 +4,7 @@ import Balance from '../../component/balance'
 import CalculatorForm, { OperationPayload } from '../../component/calculator-form'
 import useRequest from '../../hooks/use-request';
 import { useRouter } from 'next/router';
+import Errors from '../../component/error';
 
 
 
@@ -37,6 +38,7 @@ const Records: NextPage = () => {
                     loading={isLoading as boolean}
                     errors={errors}
                 />
+                <Errors errors={errors as Array<string>}/>
             </div>
         </div>
     )

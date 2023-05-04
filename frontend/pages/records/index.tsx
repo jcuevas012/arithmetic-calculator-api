@@ -50,12 +50,12 @@ const Records: NextPage = () => {
                 <meta name='viewport' content='initial-scale=1.0, width=device-width' />
             </Head>
             <main>
-                <OperationTypeDropDown onChange={onOperationTypeChange}/>
-                <Table 
+                <OperationTypeDropDown onChange={onOperationTypeChange} />
+                <Table
                     result={result}
                     onPageSelect={onPageSelect}
-                    />
-                
+                />
+
             </main>
         </div>
     )

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ReactElement, useState } from 'react'
+import { useState } from 'react'
 
 interface UseRequestProps {
     url: string
@@ -9,12 +9,12 @@ interface UseRequestProps {
 }
 
 const useRequest = (options: UseRequestProps) => {
-    const [errors, setErrors] = useState<ReactElement | null>()
+    const [errors, setErrors] = useState<Array<string>>([])
     const [isLoading, setLoading] = useState<boolean>(false)
 
     const request = async (params = {}) => {
         try {
-            setErrors(null)
+            setErrors([])
             setLoading(true)
             const response = await axios[options.method](options.url, { ...options.body, ...params})
 
@@ -25,8 +25,9 @@ const useRequest = (options: UseRequestProps) => {
 
         } catch (error: any) {
             setLoading(false)
-            const errors = error.response?.data?.errors
-            setErrors(errors && errors.map((err: any, i: number) => <div key={i}>{err.message}</div>))
+            
+            const errors = error.response?.data?.errors || ['Something went wrong']
+            setErrors(errors)
         }
     }
 

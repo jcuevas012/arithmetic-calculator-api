@@ -3,7 +3,7 @@
 
 This is a small project which looking to implement some of the best practices that should be taken into consideration when developing REST API such as:
 
-Note: Some points are just recommendations for scaling and were not implemented here because of the time available. those are going to be marked with `*`
+Note: Some points are just recommendations for scaling and were not implemented here because of the time available. those are going to be marked with `*` or as a Note
 # Services Architecture 
 
 ![ECS deployment final](https://user-images.githubusercontent.com/13880481/236306566-79f6dd9e-fe0a-453f-a3b1-dbc14be4f3c7.png)

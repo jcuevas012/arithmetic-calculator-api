@@ -15,7 +15,14 @@ const Records: NextPage = () => {
     const [request, errors, isLoading] = useRequest({
         method: 'post',
         url: '/api/operations',
-        onSuccess: () => router.push('/operations/success'),
+        onSuccess: (data: any) =>{ 
+            router.push({
+                pathname: '/operations/success',
+                query: {
+                    operationResponse: data.operationResponse
+                }
+            })
+        },
     })
 
     const onChange = async (data: OperationPayload) => {

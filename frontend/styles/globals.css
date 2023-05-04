@@ -10,3 +10,7 @@
 .sign-link {
     margin-right: 15px;
 }
+
+.not-cursor {
+  cursor: not-allowed;
+}

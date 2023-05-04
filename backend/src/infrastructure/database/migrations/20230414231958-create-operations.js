@@ -13,6 +13,10 @@ module.exports = {
         type: Sequelize.DECIMAL,
         allowNull: false,
       },
+      description: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       type: {
         type: Sequelize.STRING,
         allowNull: false

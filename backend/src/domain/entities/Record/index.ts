@@ -7,7 +7,7 @@ export class Record {
   protected userId: string
   protected amount: number
   protected userBalance: number
-  protected operationResponse: number | string
+  protected operationResponse: string
   protected date: string
 
 
@@ -37,7 +37,7 @@ export class Record {
      this.userBalance = userBalance
   }
 
-  setOperationResponse(operationResponse: number | string) {
+  setOperationResponse(operationResponse: string) {
      this.operationResponse = operationResponse
   }  
 
@@ -66,9 +66,6 @@ export class Record {
     return this.userBalance
   }
 
-  getOperationResponseAsString(): string {
-      return this.operationResponse && this.operationResponse.toString()
-  }
 
   getOperationResponse() {
     return this.operationResponse

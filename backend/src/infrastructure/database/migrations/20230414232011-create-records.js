@@ -19,7 +19,7 @@ module.exports = {
       }, 
       operationResponse: {
         allowNull: false,
-        type: Sequelize.DECIMAL,
+        type: Sequelize.STRING,
       }, 
       userId: {
         allowNull: false,

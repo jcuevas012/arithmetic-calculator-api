@@ -5,6 +5,7 @@ import { OperationType } from '../../../domain/entities/Operation';
 interface OperationRow {
   id: string;
   type: OperationType;
+  description: string;
   cost: number;
 }
 
@@ -12,6 +13,7 @@ export class SequelizeOperation extends Model<OperationRow> {
   declare id: string;
   declare type: OperationType;
   declare cost: number;
+  declare description: string;
 }
 
 SequelizeOperation.init({
@@ -22,6 +24,10 @@ SequelizeOperation.init({
     defaultValue: DataTypes.UUIDV4,
   }, 
   type: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  description: {
     type: DataTypes.STRING,
     allowNull: false
   },

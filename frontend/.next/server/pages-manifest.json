@@ -3,6 +3,8 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/api/auth/me": "pages/api/auth/me.js",
+  "/api/auth/sign-up": "pages/api/auth/sign-up.js",
+  "/api/current-balance": "pages/api/current-balance.js",
   "/api/operations/types": "pages/api/operations/types.js",
-  "/api/current-balance": "pages/api/current-balance.js"
+  "/api/operations": "pages/api/operations.js"
 }

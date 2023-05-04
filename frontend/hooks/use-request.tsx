@@ -4,7 +4,7 @@ import { ReactElement, useState } from 'react'
 interface UseRequestProps {
     url: string
     method: 'post' | 'put' | 'delete'
-    body: any
+    body?: any
     onSuccess: Function
 }
 
@@ -30,7 +30,7 @@ const useRequest = (options: UseRequestProps) => {
         }
     }
 
-    return [request, errors, isLoading]
+    return [request, errors, isLoading ]
 }
 
 export default useRequest

@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import Balance from '../component/balance'
 
 const LandingPage: NextPage<{ currentUser: any }> = ({ currentUser }) => {
     return (
@@ -17,6 +18,12 @@ const LandingPage: NextPage<{ currentUser: any }> = ({ currentUser }) => {
                             <span className='block'>Planing to do some arithmetic operations ?</span>
                             <span className='block text-indigo-600'>Lets dive in.</span>
                         </h2>
+
+                        {currentUser && 
+                        <div className="py-5">
+                            <Balance/>
+                        </div>
+                        }
                         {currentUser && <div className='mt-8 flex lg:mt-0 lg:flex-shrink-0'>
                             <div className='inline-flex rounded-md shadow'>
                                 <Link href={'/operations'}>

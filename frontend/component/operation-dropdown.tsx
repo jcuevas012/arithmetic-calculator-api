@@ -5,6 +5,7 @@ import axios from "axios"
 interface OperationTypes {
   id: string
   type: string
+  description: string
   cost: number
 }
 
@@ -42,8 +43,9 @@ const OperationTypeDropDown: React.FC<OperationTypeDropDownTypes> = ({ onChange 
       <label >Operation Type:</label>
       <br/>
       <select name="cars" id="cars" onChange={_onChange} >
+        <option> Select Operation Type </option>
         { operationTypes.length && 
-        operationTypes.map((operationType) => (<option key={operationType.id} value={operationType?.id}>{operationType?.type}</option>))}
+        operationTypes.map((operationType) => (<option key={operationType.id} value={operationType?.id}>{`${operationType?.description} -- Cost: ${operationType.cost}` }</option>))}
         
       </select>
     </div>

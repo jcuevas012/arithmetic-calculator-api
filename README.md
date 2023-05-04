@@ -1,3 +1,5 @@
+## Live Demo [Here!!](https://arithmetic-calculator-api-rouge.vercel.app/)
+
 # arithmetic-calculator-api
 
 This is a small project which looking to implement some of the best practices that should be taken into consideration when developing REST API such as:

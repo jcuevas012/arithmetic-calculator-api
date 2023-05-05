@@ -59,6 +59,9 @@ The frontend  App sends a `Authorization: Bearer jwt-token` on each request. Rel
 - Unit Testing for services and repository
 
 - Also a simple Postman collection file is added to the project.
+> **Note**
+>Cypress E2E testing 
+> React Testing library  for testing React comppmemt
 
 > **Note**
 > *Define test coverage at least 75%
@@ -107,5 +110,7 @@ I consider resiliency API an important topic since production API should be read
 - As for how to use the API, I added a Postman collection file with the API's use cases so the user can get familiar with how to request and what the endpoints are expecting.
 
 > **Genaral Notes**
+> Agragate Swagger API Documentations 
+> Storybooks for React component documentations
 > *  In order to improve operation transactions could be added SQL transactions. so if any issue happens in the process of debit/credit we could easily rollback
 

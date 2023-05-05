@@ -7,7 +7,7 @@ describe(' OperationService executeOperation test cases', function () {
   it('OperationService.executeOperation return undefined', async () => {
     const operationService = new OperationService(null, null, null)
 
-    const result = operationService.executeOperation(null, {
+    const result = await operationService.executeOperation(null, {
       firstValue: 10,
       secondValue: 20,
       operationId: ''
@@ -21,7 +21,7 @@ describe(' OperationService executeOperation test cases', function () {
   it('OperationService.executeOperation addition operation type ', async () => {
     const operationService = new OperationService(null, null, null)
 
-    const result = operationService.executeOperation('addition', {
+    const result = await operationService.executeOperation('addition', {
       firstValue: 10,
       secondValue: 20,
       operationId: '1234'
@@ -34,7 +34,7 @@ describe(' OperationService executeOperation test cases', function () {
     const operationService = new OperationService(null, null, null)
 
 
-    const result = operationService.executeOperation('subtraction', {
+    const result = await operationService.executeOperation('subtraction', {
       firstValue: 20,
       secondValue: 10,
       operationId: '1234'
@@ -47,7 +47,7 @@ describe(' OperationService executeOperation test cases', function () {
     const operationService = new OperationService(null, null, null)
 
 
-    const result = operationService.executeOperation('subtraction', {
+    const result = await operationService.executeOperation('subtraction', {
       firstValue: 20,
       secondValue: 10,
       operationId: '1234'
@@ -60,7 +60,7 @@ describe(' OperationService executeOperation test cases', function () {
     const operationService = new OperationService(null, null, null)
 
 
-    const result = operationService.executeOperation('multiplication', {
+    const result = await operationService.executeOperation('multiplication', {
       firstValue: 5,
       secondValue: 5,
       operationId: '1234'
@@ -75,7 +75,7 @@ describe(' OperationService executeOperation test cases', function () {
     const operationService = new OperationService(null, null, null)
 
 
-    const result = operationService.executeOperation('division', {
+    const result = await operationService.executeOperation('division', {
       firstValue: 100,
       secondValue: 2,
       operationId: '1234'
@@ -88,7 +88,7 @@ describe(' OperationService executeOperation test cases', function () {
     const operationService = new OperationService(null, null, null)
 
 
-    const result = operationService.executeOperation('square_root', {
+    const result = await operationService.executeOperation('square_root', {
       firstValue: 4,
       secondValue: 4,
       operationId: '1234'

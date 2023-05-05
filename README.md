@@ -43,7 +43,7 @@ After docker services are running `cd ./backend && npm run db:reset` this will c
 
 ## CI/CD
 
-In order to deploy this to AWS the project is using a GitHub Actions workflow that builds a docker image and pushes it to ECR and later is deployed to ECS using a task definition service `.github/workflows/aws-deploy`, since the frontend use case is using NextJs, the deploy is being executed with Vercel Deployments.
+- In order to deploy this to AWS the project is using a GitHub Actions workflow that builds a docker image and pushes it to ECR and later is deployed to ECS using a task definition service `.github/workflows/aws-deploy`, since the frontend use case is using NextJs, the deploy is being executed with Vercel Deployments.
 
 - Workflow action for build and test on PR
 

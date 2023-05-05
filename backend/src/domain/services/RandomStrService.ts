@@ -1,15 +1,23 @@
+import axios from 'axios'
+
 export interface IRandomStrService {
-    
-    getValue(firstValue: number, secondValue: number): string
+    getValue(firstValue: number, secondValue: number): Promise<string>
 }
-
-
 
 export class RandomStrService implements IRandomStrService {
 
-    getValue(firstValue: number, secondValue: number): string {
+    async getValue(firstValue = 10, secondValue = 20): Promise<string> {
 
-        // NOTE: third party service will call here
-        return (Math.random() + 1).toString(firstValue).substring(secondValue)
+        try {
+            const host = process.env.RANDOM_SERVICE_HOST as string
+
+            const response = await axios.get(`${host}&min=${firstValue}&max=${secondValue}`)
+
+            const data = response.data as string
+            return data.trim()
+        } catch (err) {
+            console.log('Log:: Error RandomStrService.getValue ', err?.message)
+            return 'DATA AVAILABLE'
+        }
     }
 }

@@ -31,7 +31,7 @@ export class OperationService {
     try {
       const newRecord = new Record(userInfo.getId(), operation)
 
-      const response = this.executeOperation(operation.getType().toString(), operationPayload)
+      const response = await this.executeOperation(operation.getType().toString(), operationPayload)
 
       const userBalance = userInfo.getBalance() - operation.getCost()
 
@@ -66,10 +66,10 @@ export class OperationService {
 
 
 
-  executeOperation(type: string, values: OperationPayload): string {
+  async executeOperation(type: string, values: OperationPayload): Promise<string> {
     const { firstValue, secondValue } = values
 
-    const getResult = () => {
+    const getResult = async () => {
       switch (type) {
         case 'addition':
           return firstValue + secondValue
@@ -88,7 +88,7 @@ export class OperationService {
       }
     }
 
-    const result = getResult()
+    const result = await getResult()
 
     return result && result.toString()
   }

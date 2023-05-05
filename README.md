@@ -103,3 +103,7 @@ I consider resiliency API an important topic since production API should be read
 # Documentation
 
 - As for how to use the API, I added a Postman collection file with the API's use cases so the user can get familiar with how to request and what the endpoints are expecting.
+
+> **Note**
+> * In order to improve operation transaction sequelize transactions could be add so if any issue happens in the process of debit/credit we could easy rollback
+

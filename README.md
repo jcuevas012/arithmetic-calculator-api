@@ -1,7 +1,7 @@
 # arithmetic-calculator-api
 ## Live Demo [Here!!](https://arithmetic-calculator-api-rouge.vercel.app/)
 
-This is a small project which looking to implement some of the best practices that should be taken into consideration when developing REST API such as:
+This small project implements some of the best practices for developing REST APIs, such as:
 
 Note: Some points are just recommendations for scaling and were not implemented here because of the time available. those are going to be marked with `*` or as a Note
 # Services Architecture 
@@ -11,7 +11,7 @@ Note: Some points are just recommendations for scaling and were not implemented 
 
 ## Pre-install
 
-This project is running using  `docker` and `docker-compose` locally. We need some environment variables which will be place in `.env` for `backend` folder and `.env.local` for frontend, you can find those in each folder
+This project runs on  `docker` and `docker-compose` locally. We need some environment variables which will be placed in `.env` for `backend` folder and `.env.local` for frontend, you can find those in each folder.
 ## How to run
 ### Build Image
 `docker-compose build`
@@ -39,18 +39,18 @@ After docker services are running `cd ./backend && npm run db:reset` this will c
 
 ## Clean Architecture
 
-- The project already has a simple architecture and folder organization based on clean architecture and Domain Driven Design   `application`, `domain`, and `infrastructure`.  All use cases and business logic are under `domain\services` and `domain\models` where other code like `application` and `infrastructure` could be replaced as dependencies if it's needed since using Dependency injection to inject repository to services and services to application controllers.
+- The project already has a simple architecture and folder organization based on Clean Architecture and Domain Driven Design   `application`, `domain`, and `infrastructure`.  All use cases and business logic are under `domain\services` and `domain\models` where other code like `application` and `infrastructure` could be replaced as dependencies if it's needed since using Dependency injection to inject repository to services and services to application controllers.
 
 ## CI/CD
 
-In order to deploy this to AWS the project is using a GitHub workflow action that builds a docker image and pushes it to ECR and later is deployed to ECS using a task definition service `.github/workflows/aws-deploy`, for the case of the frontend since using NextJs, the deploy is been execute with Vercel Deployments.
+In order to deploy this to AWS the project is using a GitHub Actions workflow that builds a docker image and pushes it to ECR and later is deployed to ECS using a task definition service `.github/workflows/aws-deploy`, since the frontend use case is using NextJs, the deploy is being executed with Vercel Deployments.
 
 
 ## Security
 
-The backend API is secured under JWT token, each time a user `sign-in/sign-up` return a token which should be sent back in the request `Authorization` header in order to access API resources.
+The backend API is secured by JWT token, each time a user `sign-in/sign-up` a token is returned which should be sent back in the request `Authorization` header in order to access API resources.
 
-The frontend  App send `Bearer jwt-token on each request since using Next in order to secure the token all react app request to `next/api` which hold the token in the cookies encrypted with 32 length password using [iron-session](https://github.com/vvo/iron-session).
+The frontend  App sends a `Authorization: Bearer jwt-token` on each request. Relay on Next in order to secure the token on each request. Creating a signed and encrypted cookie with 32 length password under  `next/api` which hold the jwt-token using [iron-session](https://github.com/vvo/iron-session).
 
 ## Testing
 
@@ -65,13 +65,9 @@ The frontend  App send `Bearer jwt-token on each request since using Next in ord
 > * implementation handles testing using integration testing making sure the server responds with the correct HTTP code and data using supertest and inmemory postgres data base.
 > Create a stub database for testing in order to have a separate environment
 
-
-
-
-
 ## Error Handler.
 
-- For this case write out a simple error handler system base on classes `domain/entities/errors`, where and relaying on express `express-async-errors` so that I can throw errors direct from `controller`, `repositories` or `services` using async/await when is needed
+- For this case I wrote a simple error handler system based on classes `domain/entities/errors` and relaying on express `express-async-errors` so that I can throw errors direct from `controller`, `repositories` or `services` using async/await when is needed
 
 - CustomError abstract class used as a template for mapping error object structure response
 
@@ -91,18 +87,18 @@ I consider resiliency API an important topic since production API should be read
 - `/health` endpoint in order to check when API is available which is used by the AWS cluster service health check.
 
 > **Note**
-> * Graceful shutdowns, it's something that would take care of as well and make sure that processes or connections get close if the apps crash, Useful simple lib:https://github.com/hunterloftis/stoppable
+> * Graceful shutdowns,  would ensure  processes or connections get closed if the apps crash, Useful simple lib:https://github.com/hunterloftis/stoppable
 
 ## Logger
 
-- For this example, we just [Morgan](https://github.com/expressjs/morgan) for service http logs and console.log for server erros errors and return a friendly message for the client user.
+- For this example, we use [Morgan](https://github.com/expressjs/morgan) for service http logs and console.log for server errors and returning a friendly message for the client user.
 
 > **Note**
 > * We could update the implementation with something more robust like Winston with AWS Cloud Watch Integration
 
 # Code Reusability
 
-- Some utilities used throw are placed on shared so it would be accessible by another part of the API in the case is needed under the `infrastructure` folder
+- Some utilities used throughout the project are placed on shared locations so it would be accessible by another part of the API in the case is needed under the `infrastructure` folder
 
 # Documentation
 

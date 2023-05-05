@@ -17,37 +17,37 @@ export class OperationService {
     private operationRepository: IOperationRepository,
     private userRepository: IUserRepository,
     private randomStrService?: IRandomStrService
-  ){}
+  ) { }
 
-  async addition(userId: string, operationPayload: OperationPayload): Promise<Record>{
-        const operation = await this.operationRepository.getOperationById(operationPayload.operationId)
+  async addition(userId: string, operationPayload: OperationPayload): Promise<Record> {
+    const operation = await this.operationRepository.getOperationById(operationPayload.operationId)
 
-        const userInfo = await this.userRepository.findById(userId)
+    const userInfo = await this.userRepository.findById(userId)
 
-        if (operation.getCost() > userInfo.getBalance()) {
-            throw new BadRequestError("Operation not allow, insufficient balance")
-        }
-        
-        try {
-        const newRecord = new Record(userInfo.getId(), operation)
+    if (operation.getCost() > userInfo.getBalance()) {
+      throw new BadRequestError("Operation not allow, insufficient balance")
+    }
 
-        const response = this.executeOperation(operation, operationPayload)
+    try {
+      const newRecord = new Record(userInfo.getId(), operation)
 
-        const userBalance = userInfo.getBalance() - operation.getCost()
+      const response = await this.executeOperation(operation.getType().toString(), operationPayload)
 
-        
-        newRecord.setAmount(operation.getCost())
-        newRecord.setUserBalance(userBalance)
-        newRecord.setOperationResponse(response)
+      const userBalance = userInfo.getBalance() - operation.getCost()
 
-        const record = await this.operationRepository.create(newRecord)
 
-        return record;
-      } catch (error) {
-          console.log('Log:::', error)
-          console.log('Log:::', error.message)
-          throw new Error('Error with addition operation')
-      }
+      newRecord.setAmount(operation.getCost())
+      newRecord.setUserBalance(userBalance)
+      newRecord.setOperationResponse(response)
+
+      const record = await this.operationRepository.create(newRecord)
+
+      return record;
+    } catch (error) {
+      console.log('Log:::', error)
+      console.log('Log:::', error.message)
+      throw new Error('Error with addition operation')
+    }
   }
 
   async getOperationList(): Promise<Operation[]> {
@@ -57,40 +57,38 @@ export class OperationService {
 
       return operations
     } catch (error) {
-        console.log('Log:', error)
-        console.log('Log:', error.message)
-        throw new BadRequestError('Error fetching operation list')
+      console.log('Log:', error)
+      console.log('Log:', error.message)
+      throw new BadRequestError('Error fetching operation list')
     }
   }
 
 
 
 
-  executeOperation(operation: Operation, values: OperationPayload ):  string {
+  async executeOperation(type: string, values: OperationPayload): Promise<string> {
     const { firstValue, secondValue } = values
-    const type = OperationType[operation.getType()] as unknown as OperationType
 
-
-    const getResult = () => {
+    const getResult = async () => {
       switch (type) {
-        case OperationType.addition:
+        case 'addition':
           return firstValue + secondValue
-        case OperationType.subtraction:
+        case 'subtraction':
           return firstValue - secondValue
-        case OperationType.division:
+        case 'division':
           return firstValue / secondValue
-        case OperationType.multiplication:
+        case 'multiplication':
           return firstValue * secondValue
-        case OperationType.square_root:
+        case 'square_root':
           return Math.sqrt(firstValue)
-        case OperationType.random_string:
-          return this.randomStrService.getValue()      
+        case 'random_string':
+          return this.randomStrService.getValue(firstValue, secondValue)
         default:
           break;
       }
     }
 
-    const result = getResult()
+    const result = await getResult()
 
     return result && result.toString()
   }

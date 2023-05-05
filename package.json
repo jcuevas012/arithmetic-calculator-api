@@ -1,0 +1,14 @@
+
+{
+  "name": "arithmetic-workspace",
+  "workspaces": [
+    "frontend",
+    "backend"
+
+  ],
+  "scripts": {
+    "backend:build": "npm run build --workspace=backend",
+    "backend:test": "npm run test --workspace=backend",
+    "backend:ci": "npm run ci --workspace=backend"
+  }
+}

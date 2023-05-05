@@ -25,7 +25,7 @@ describe(' OperationService executeOperation test cases', function () {
       operationId: ''
     })
 
-    expect(result).toBeTruthy()
+    expect(result).toBeFalsy()
     expect(result).toBeUndefined()
   })
 

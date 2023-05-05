@@ -53,9 +53,12 @@ After docker services are running `cd ./backend && npm run db:reset` this will c
 
 ## Security
 
-The backend API is secured by JWT token, each time a user `sign-in/sign-up` a token is returned which should be sent back in the request `Authorization` header in order to access API resources.
+- The backend API is secured by JWT token, each time a user `sign-in/sign-up` a token is returned which should be sent back in the request `Authorization` header in order to access API resources.
 
-The frontend  App sends a `Authorization: Bearer jwt-token` on each request. Relay on Next in order to secure the token on each request. Creating a signed and encrypted cookie with 32 length password under  `next/api` which hold the jwt-token using [iron-session](https://github.com/vvo/iron-session).
+- The frontend  App sends a `Authorization: Bearer jwt-token` on each request. Relay on Next in order to secure the token on each request. Creating a signed and encrypted cookie with 32 length password under  `next/api` which hold the jwt-token using [iron-session](https://github.com/vvo/iron-session).
+
+> **Note**
+> Integrate with SonarQube and OWASP dependency check
 
 ## Testing
 
@@ -63,7 +66,7 @@ The frontend  App sends a `Authorization: Bearer jwt-token` on each request. Rel
 
 - Also a simple Postman collection file is added to the project.
 > **Note**
->Cypress E2E testing 
+> Cypress E2E testing 
 > React Testing library  for testing React comppmemt
 
 > **Note**

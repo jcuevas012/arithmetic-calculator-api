@@ -41,6 +41,9 @@ After docker services are running `cd ./backend && npm run db:reset` this will c
 
 - The project already has a simple architecture and folder organization based on Clean Architecture and Domain Driven Design   `application`, `domain`, and `infrastructure`.  All use cases and business logic are under `domain\services` and `domain\models` where other code like `application` and `infrastructure` could be replaced as dependencies if it's needed since using Dependency injection to inject repository to services and services to application controllers.
 
+- Dependency Injection
+- Factory Method
+
 ## CI/CD
 
 - In order to deploy this to AWS the project is using a GitHub Actions workflow that builds a docker image and pushes it to ECR and later is deployed to ECS using a task definition service `.github/workflows/aws-deploy`, since the frontend use case is using NextJs, the deploy is being executed with Vercel Deployments.
@@ -110,7 +113,7 @@ I consider resiliency API an important topic since production API should be read
 - As for how to use the API, I added a Postman collection file with the API's use cases so the user can get familiar with how to request and what the endpoints are expecting.
 
 > **Genaral Notes**
-> Agragate Swagger API Documentations 
-> Storybooks for React component documentations
+> * Agragate Swagger API Documentations 
+> * Storybooks for React component documentations
 > *  In order to improve operation transactions could be added SQL transactions. so if any issue happens in the process of debit/credit we could easily rollback
 

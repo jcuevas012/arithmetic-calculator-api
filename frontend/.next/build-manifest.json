@@ -30,16 +30,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/operations": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/operations.js"
-    ],
-    "/operations/success": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/operations/success.js"
-    ],
     "/records": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

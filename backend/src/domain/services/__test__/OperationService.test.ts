@@ -1,5 +1,14 @@
-import { OperationService } from "../OperationService"
+import { OperationService } from "../OperationService";
+import jestMock from 'ts-jest';
+import  { RandomStrService }  from '../RandomStrService'
 
+jest.mock('../RandomStrService', () => {
+  return jest.fn(() => {
+    return {
+      getValue: jest.fn()
+    };
+  });
+});
 
 describe(' OperationService executeOperation test cases', function () {
 
@@ -98,17 +107,21 @@ describe(' OperationService executeOperation test cases', function () {
   })
 
 
-  // it('OperationService.executeOperation random_string operation type ', async () => {
-  //   const operationService = new OperationService(null, null, null)
+  it('OperationService.executeOperation random_string operation type ', async () => {
+
+    // const strService = mocked(RandomStrService, true);
 
 
-  //   const result = operationService.executeOperation('random_string', {
-  //     firstValue: 4,
-  //     secondValue: 4,
-  //     operationId: '1234'
-  //   })
+    // const operationService = new OperationService(null, null, strService)
 
-  //   expect(result).toBe("2")
-  // })
+
+    // const result = await operationService.executeOperation('random_string', {
+    //   firstValue: 4,
+    //   secondValue: 4,
+    //   operationId: '1234'
+    // })
+
+    // expect(result).toBe("random_string")
+  })
 
 })

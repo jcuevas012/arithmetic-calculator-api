@@ -1,17 +1,20 @@
 import { OperationService } from "../OperationService";
-import jestMock from 'ts-jest';
 import  { RandomStrService }  from '../RandomStrService'
+jest.mock('../RandomStrService')
 
-jest.mock('../RandomStrService', () => {
-  return jest.fn(() => {
-    return {
-      getValue: jest.fn()
-    };
-  });
-});
+
 
 describe(' OperationService executeOperation test cases', function () {
 
+  beforeAll(() => {
+    //@ts-ignore
+    RandomStrService.mockImplementation(() => {
+      return {
+        getValue: () => "random_string",
+      };
+    });
+
+  });
 
   it('OperationService.executeOperation return undefined', async () => {
     const operationService = new OperationService(null, null, null)
@@ -22,6 +25,7 @@ describe(' OperationService executeOperation test cases', function () {
       operationId: ''
     })
 
+    expect(result).toBeTruthy()
     expect(result).toBeUndefined()
   })
 
@@ -36,6 +40,7 @@ describe(' OperationService executeOperation test cases', function () {
       operationId: '1234'
     })
 
+    expect(result).toBeTruthy()
     expect(result).toBe("30")
   })
 
@@ -49,6 +54,7 @@ describe(' OperationService executeOperation test cases', function () {
       operationId: '1234'
     })
 
+    expect(result).toBeTruthy()
     expect(result).toBe("10")
   })
 
@@ -61,7 +67,7 @@ describe(' OperationService executeOperation test cases', function () {
       secondValue: 10,
       operationId: '1234'
     })
-
+    expect(result).toBeTruthy()
     expect(result).toBe("10")
   })
 
@@ -75,6 +81,7 @@ describe(' OperationService executeOperation test cases', function () {
       operationId: '1234'
     })
 
+    expect(result).toBeTruthy()
     expect(result).toBe("25")
   })
 
@@ -90,6 +97,7 @@ describe(' OperationService executeOperation test cases', function () {
       operationId: '1234'
     })
 
+    expect(result).toBeTruthy()
     expect(result).toBe("50")
   })
 
@@ -103,25 +111,27 @@ describe(' OperationService executeOperation test cases', function () {
       operationId: '1234'
     })
 
+    expect(result).toBeTruthy()
     expect(result).toBe("2")
   })
 
 
   it('OperationService.executeOperation random_string operation type ', async () => {
 
-    // const strService = mocked(RandomStrService, true);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const strService =  new RandomStrService()
 
+    const operationService = new OperationService(null, null, strService)
 
-    // const operationService = new OperationService(null, null, strService)
-
-
-    // const result = await operationService.executeOperation('random_string', {
-    //   firstValue: 4,
-    //   secondValue: 4,
-    //   operationId: '1234'
-    // })
-
-    // expect(result).toBe("random_string")
+    const result = await operationService.executeOperation('random_string', {
+      firstValue: 4,
+      secondValue: 4,
+      operationId: '1234'
+    })
+    
+    expect(result).toBeTruthy()
+    expect(result).toBe("random_string")
   })
 
 })

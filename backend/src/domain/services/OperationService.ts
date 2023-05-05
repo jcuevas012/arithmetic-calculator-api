@@ -1,5 +1,5 @@
 import { BadRequestError } from "../entities/Error/bad-request-error";
-import { Operation, OperationType } from "../entities/Operation";
+import { Operation } from "../entities/Operation";
 import { Record } from "../entities/Record";
 import { IOperationRepository } from "../repository/IOperationRepository";
 import { IUserRepository } from "../repository/IUserRepository";
